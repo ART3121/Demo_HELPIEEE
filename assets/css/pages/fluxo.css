@@ -112,6 +112,23 @@
     letter-spacing: 0.3px;
   }
 
+  .flow-select {
+    min-width: 210px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text);
+    outline: none;
+  }
+
+  .flow-select:focus {
+    border-color: var(--blue-light);
+    box-shadow: 0 0 0 3px rgba(0, 133, 202, 0.14);
+  }
+
   .btn-toggle {
     padding: 6px 14px;
     border-radius: 6px;
@@ -148,9 +165,9 @@
 
   .flow-grid {
     display: grid;
-    grid-template-columns: repeat(10, 160px);
+    grid-template-columns: repeat(var(--period-count, 10), 160px);
     gap: 0;
-    min-width: 1640px;
+    min-width: var(--grid-min-width, 1640px);
     position: relative;
   }
 
@@ -237,6 +254,8 @@
     color: var(--blue-mid);
     letter-spacing: 0.5px;
     margin-bottom: 4px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 
   .disc.active .disc-code { color: rgba(255,255,255,0.65); }
@@ -246,6 +265,7 @@
     font-weight: 500;
     color: var(--text);
     line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 
   .disc.active .disc-name { color: #fff; }
@@ -255,6 +275,7 @@
     font-size: 10px;
     color: var(--muted);
     font-family: 'Space Mono', monospace;
+    overflow-wrap: anywhere;
   }
 
   .disc.active .disc-credits { color: rgba(255,255,255,0.55); }

@@ -7,10 +7,10 @@
   --text: #0A1628;
   --text-muted: #5A6A85;
   --border: rgba(0, 98, 155, 0.12);
-  --surface: rgba(255, 255, 255, 0.78);
-  --surface-strong: rgba(255, 255, 255, 0.92);
-  --shadow: 0 24px 64px rgba(0, 48, 87, 0.12);
-  --grid-color: rgba(0, 98, 155, 0.07);
+  --surface: rgba(255, 255, 255, 0.96);
+  --surface-strong: #ffffff;
+  --shadow: 0 14px 34px rgba(0, 48, 87, 0.08);
+  --grid-color: rgba(0, 98, 155, 0.035);
 }
 
 *,
@@ -27,7 +27,7 @@ html {
 
 body.page-content {
   font-family: 'Inter', sans-serif;
-  background: var(--off-white);
+  background: linear-gradient(180deg, #fbfcfe 0%, var(--off-white) 100%);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
@@ -38,9 +38,11 @@ body.page-content::before {
   position: fixed;
   inset: 0;
   background-image:
+    radial-gradient(circle at top right, rgba(0, 133, 202, 0.08), transparent 32%),
     linear-gradient(var(--grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-size: auto, 72px 72px, 72px 72px;
+  opacity: 0.5;
   pointer-events: none;
   z-index: 0;
 }
@@ -142,14 +144,13 @@ a {
 .callout-panel,
 .map-frame-card {
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 20px;
   background: var(--surface);
-  backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
 }
 
 .page-hero-copy {
-  padding: 36px;
+  padding: 34px;
   position: relative;
   overflow: hidden;
 }
@@ -158,9 +159,9 @@ a {
   content: '';
   position: absolute;
   inset: auto -80px -80px auto;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(0, 133, 202, 0.16) 0%, transparent 70%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 133, 202, 0.1) 0%, transparent 72%);
 }
 
 .page-kicker,
@@ -253,7 +254,7 @@ a {
 }
 
 .hero-panel {
-  padding: 28px;
+  padding: 24px;
 }
 
 .hero-panel-title {
@@ -345,7 +346,7 @@ a {
 
 .info-card,
 .link-card {
-  padding: 24px;
+  padding: 22px;
 }
 
 .card-eyebrow {
@@ -437,7 +438,7 @@ a {
 
 .callout-panel {
   margin-top: 28px;
-  padding: 28px;
+  padding: 26px;
   background: linear-gradient(135deg, rgba(0, 98, 155, 0.94), rgba(0, 48, 87, 0.98));
   color: var(--white);
 }
@@ -562,7 +563,7 @@ a {
   .info-card,
   .link-card,
   .callout-panel {
-    border-radius: 20px;
+    border-radius: 18px;
   }
 
   .page-title {

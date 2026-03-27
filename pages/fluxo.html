@@ -10,8 +10,8 @@
 <body class="page-flow">
 
 <div class="flow-header">
-  <h1>Fluxo Curricular — Eng. Elétrica: Sistemas Eletrônicos</h1>
-  <p>UFJF · 69A · Clique em uma disciplina para ver pré-requisitos e o que ela desbloqueia</p>
+  <h1 id="flow-title">Fluxo Curricular — Eng. Elétrica: Sistemas Eletrônicos</h1>
+  <p id="flow-subtitle">UFJF · 69A · Clique em uma disciplina para ver pré-requisitos e o que ela desbloqueia</p>
   <div class="legend">
     <div class="legend-item">
       <div class="legend-dot legend-dot--default"></div>
@@ -37,6 +37,14 @@
 </div>
 
 <div class="controls">
+  <label for="curriculum-select">Grade:</label>
+  <select class="flow-select" id="curriculum-select">
+    <option value="sistemas-eletronicos">Sistemas Eletrônicos</option>
+    <option value="sistemas-potencia">Sistemas de Potência</option>
+    <option value="robotica-automacao">Robótica e Automação Industrial</option>
+    <option value="energia">Energia</option>
+  </select>
+  <div class="sep"></div>
   <label>Mostrar setas:</label>
   <button class="btn-toggle active" id="btn-arrows" type="button">Ativado</button>
   <div class="sep"></div>
@@ -61,6 +69,7 @@
 
 <div class="tooltip" id="tooltip"></div>
 
+<script src="../assets/js/pages/fluxo-data.js" defer></script>
 <script src="../assets/js/pages/fluxo.js" defer></script>
 </body>
 </html>

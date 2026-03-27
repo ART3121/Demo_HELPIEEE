@@ -28,11 +28,33 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
+  <div class="hero-network hero-network-left" aria-hidden="true">
+    <svg viewBox="0 0 280 180" class="hero-network-svg">
+      <path class="hero-network-path" d="M14 98H84L118 60H178L222 112H266"></path>
+      <path class="hero-network-path hero-network-path--alt" d="M52 34V80L92 118H150L194 80H238"></path>
+      <circle class="hero-network-node" cx="84" cy="98" r="5"></circle>
+      <circle class="hero-network-node" cx="118" cy="60" r="5"></circle>
+      <circle class="hero-network-node" cx="178" cy="60" r="5"></circle>
+      <circle class="hero-network-node" cx="222" cy="112" r="5"></circle>
+    </svg>
+  </div>
+  <div class="hero-network hero-network-right" aria-hidden="true">
+    <svg viewBox="0 0 280 180" class="hero-network-svg">
+      <path class="hero-network-path" d="M18 126H96L130 88H192L226 52H262"></path>
+      <path class="hero-network-path hero-network-path--alt" d="M44 44H118L154 82V136H236"></path>
+      <circle class="hero-network-node" cx="96" cy="126" r="5"></circle>
+      <circle class="hero-network-node" cx="130" cy="88" r="5"></circle>
+      <circle class="hero-network-node" cx="192" cy="88" r="5"></circle>
+      <circle class="hero-network-node" cx="226" cy="52" r="5"></circle>
+    </svg>
+  </div>
 
   <!-- Float left -->
   <div class="hero-float hero-float-left">
     <div class="float-card">
-      <div class="float-card-icon">📐</div>
+      <div class="float-card-icon">
+        <img src="assets/icons/blueprint.svg" alt="" class="icon-svg icon-svg--float">
+      </div>
       <div class="float-card-title">Cálculo I</div>
       <div class="float-card-sub">Provas antigas + resoluções disponíveis</div>
       <div class="float-card-tag">12 arquivos</div>
@@ -42,7 +64,9 @@
   <!-- Float right -->
   <div class="hero-float hero-float-right">
     <div class="float-card">
-      <div class="float-card-icon">🗺️</div>
+      <div class="float-card-icon">
+        <img src="assets/icons/map.svg" alt="" class="icon-svg icon-svg--float">
+      </div>
       <div class="float-card-title">Bloco F</div>
       <div class="float-card-sub">Sala 202 — ENG. ELÉTRICA</div>
       <div class="float-card-tag">Mapa interativo</div>
@@ -66,7 +90,10 @@
 
   <div class="hero-buttons">
     <a href="pages/primeiros-passos.html" class="btn-primary">Explorar o guia →</a>
-    <a href="pages/materiais.html" class="btn-secondary">📚 Ver materiais</a>
+    <a href="pages/materiais.html" class="btn-secondary">
+      <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--button">
+      Ver materiais
+    </a>
   </div>
 
 
@@ -82,7 +109,9 @@
     <div class="features-grid reveal">
       <div class="feature-card">
         <span class="feature-num">01</span>
-        <div class="feature-icon">🗺️</div>
+        <div class="feature-icon">
+          <img src="assets/icons/map.svg" alt="" class="icon-svg">
+        </div>
         <div class="feature-title">Mapa de Salas</div>
         <p class="feature-desc">Encontre qualquer sala, laboratório, coordenação ou serviço na UFJF com nosso mapa interativo do campus e dos blocos de Engenharia.</p>
         <a href="pages/mapa.html" class="feature-link">Ver mapa →</a>
@@ -90,23 +119,29 @@
 
       <div class="feature-card">
         <span class="feature-num">02</span>
-        <div class="feature-icon">📚</div>
+        <div class="feature-icon">
+          <img src="assets/icons/book.svg" alt="" class="icon-svg">
+        </div>
         <div class="feature-title">Guia de Matérias</div>
-        <p class="feature-desc">Como funcionam Cálculo, G.A., Física e Programação? Entenda o ritmo, as avaliações, e dicas de como estudar cada disciplina.</p>
+        <p class="feature-desc">Como funcionam Algoritmos, Cálculo I, G.A., Química e as disciplinas introdutórias do 1º período? Entenda o ritmo e como estudar melhor cada uma.</p>
         <a href="pages/materiais.html" class="feature-link">Ver matérias →</a>
       </div>
 
       <div class="feature-card">
         <span class="feature-num">03</span>
-        <div class="feature-icon">📝</div>
+        <div class="feature-icon">
+          <img src="assets/icons/document.svg" alt="" class="icon-svg">
+        </div>
         <div class="feature-title">Provas Antigas</div>
-        <p class="feature-desc">Acesse provas de semestres anteriores de Cálculo I, G.A., Física e muito mais — com resoluções detalhadas para você treinar.</p>
+        <p class="feature-desc">Acesse provas e listas de disciplinas-chave do 1º período, com espaço preparado para resoluções detalhadas e revisão por tema.</p>
         <a href="pages/materiais.html#provas" class="feature-link">Acessar provas →</a>
       </div>
 
       <div class="feature-card">
         <span class="feature-num">04</span>
-        <div class="feature-icon">🏛️</div>
+        <div class="feature-icon">
+          <img src="assets/icons/faculty.svg" alt="" class="icon-svg">
+        </div>
         <div class="feature-title">Funcionamento da Faculdade</div>
         <p class="feature-desc">Como funciona o SIGA, matrícula em disciplinas, trancamento, fluxo curricular e tudo sobre a vida acadêmica na UFJF.</p>
         <a href="pages/faculdade.html" class="feature-link">Saber mais →</a>
@@ -114,7 +149,9 @@
 
       <div class="feature-card">
         <span class="feature-num">05</span>
-        <div class="feature-icon">⚡</div>
+        <div class="feature-icon">
+          <img src="assets/icons/circuit.svg" alt="" class="icon-svg">
+        </div>
         <div class="feature-title">IEEE & Oportunidades</div>
         <p class="feature-desc">Conheça o IEEE UFJF, como participar do ramo estudantil, eventos, projetos e como começar a construir seu currículo desde o primeiro período.</p>
         <a href="pages/ieee.html" class="feature-link">Conhecer o IEEE →</a>
@@ -122,7 +159,9 @@
 
       <div class="feature-card">
         <span class="feature-num">06</span>
-        <div class="feature-icon">🤝</div>
+        <div class="feature-icon">
+          <img src="assets/icons/community.svg" alt="" class="icon-svg">
+        </div>
         <div class="feature-title">Comunidade</div>
         <p class="feature-desc">Entre nos grupos de turma, fóruns de dúvidas e saiba com quem contar quando surgir uma dificuldade — você não está sozinho.</p>
         <a href="pages/comunidade.html" class="feature-link">Entrar na comunidade →</a>
@@ -134,27 +173,44 @@
 <!-- MATERIALS -->
 <section id="materials">
   <div class="section-label reveal">Biblioteca de materiais</div>
-  <h2 class="section-title reveal">Provas, resoluções<br>e muito mais.</h2>
-  <p class="section-desc reveal">Todo o material que você precisa, organizado por disciplina, semestre e tipo. Encontre, estude e passe.</p>
+  <h2 class="section-title reveal">Materiais do 1º período,<br>sem excesso.</h2>
+  <p class="section-desc reveal">Só as disciplinas que realmente aparecem no começo do curso, cada uma com sua própria página para crescer depois com provas, resumos e listas.</p>
 
   <div class="materials-grid reveal">
     <!-- Featured -->
     <div class="mat-card featured">
-      <div class="mat-icon">∫</div>
-      <div class="mat-title">Cálculo I & II</div>
-      <p class="mat-desc">A disciplina mais temida do primeiro semestre tem resolução — e nós temos ela. Provas antigas de todos os professores, resoluções passo a passo e resumos dos principais tópicos: limites, derivadas, integrais e séries.</p>
+      <div class="mat-icon">
+        <img src="assets/icons/math.svg" alt="" class="icon-svg icon-svg--material">
+      </div>
+      <div class="mat-title">Cálculo I</div>
+      <p class="mat-desc">A disciplina mais temida do começo do curso agora tem uma página própria, focada no que realmente importa no 1º período: limites, derivadas, rotina de treino e provas antigas.</p>
       <div class="mat-tags">
         <span class="mat-tag">Limites</span>
         <span class="mat-tag">Derivadas</span>
-        <span class="mat-tag">Integrais</span>
-        <span class="mat-tag">Séries</span>
+        <span class="mat-tag">Aplicações</span>
         <span class="mat-tag">P1 · P2 · P3</span>
       </div>
       <a href="pages/materiais-calculo.html" class="mat-link">Acessar materiais →</a>
     </div>
 
     <div class="mat-card">
-      <div class="mat-icon">📊</div>
+      <div class="mat-icon">
+        <img src="assets/icons/algorithm.svg" alt="" class="icon-svg icon-svg--material">
+      </div>
+      <div class="mat-title">Algoritmos</div>
+      <p class="mat-desc">Lógica, pseudocódigo, estrutura de resolução e prática curta para ganhar segurança logo no começo da graduação.</p>
+      <div class="mat-tags">
+        <span class="mat-tag">Lógica</span>
+        <span class="mat-tag">Fluxo</span>
+        <span class="mat-tag">Depuração</span>
+      </div>
+      <a href="pages/materiais-algoritmos.html" class="mat-link">Ver materiais →</a>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-icon">
+        <img src="assets/icons/blueprint.svg" alt="" class="icon-svg icon-svg--material">
+      </div>
       <div class="mat-title">Geometria Analítica</div>
       <p class="mat-desc">Vetores, retas, planos e cônicas. Provas antigas com gabarito e resoluções comentadas para cada tipo de questão.</p>
       <div class="mat-tags">
@@ -166,36 +222,55 @@
     </div>
 
     <div class="mat-card">
-      <div class="mat-icon">⚛️</div>
-      <div class="mat-title">Física I & II</div>
-      <p class="mat-desc">Mecânica, eletromagnetismo e ondas. Questões resolvidas e formulários para as provas dos professores da UFJF.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Mecânica</span>
-        <span class="mat-tag">Eletromag.</span>
+      <div class="mat-icon">
+        <img src="assets/icons/engineering.svg" alt="" class="icon-svg icon-svg--material">
       </div>
-      <a href="pages/materiais-fisica.html" class="mat-link">Ver materiais →</a>
+      <div class="mat-title">Introdução à Eng. Elétrica</div>
+      <p class="mat-desc">A disciplina que ajuda a entender o curso, as áreas da Engenharia Elétrica e o tipo de formação que vai aparecer ao longo da graduação.</p>
+      <div class="mat-tags">
+        <span class="mat-tag">Curso</span>
+        <span class="mat-tag">Áreas</span>
+      </div>
+      <a href="pages/materiais-introducao-engenharia-eletrica.html" class="mat-link">Ver materiais →</a>
     </div>
 
     <div class="mat-card">
-      <div class="mat-icon">💻</div>
-      <div class="mat-title">Algoritmos & Programação</div>
-      <p class="mat-desc">Introdução à lógica de programação, algoritmos e linguagem C. Exercícios resolvidos e projetos de semestres anteriores.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Lógica</span>
-        <span class="mat-tag">C / Python</span>
+      <div class="mat-icon">
+        <img src="assets/icons/lab.svg" alt="" class="icon-svg icon-svg--material">
       </div>
-      <a href="pages/materiais-programacao.html" class="mat-link">Ver materiais →</a>
+      <div class="mat-title">Lab. de Ciências Físicas</div>
+      <p class="mat-desc">Organização de relatório, leitura de medidas e preparo para as atividades práticas sem depender de memória de última hora.</p>
+      <div class="mat-tags">
+        <span class="mat-tag">Relatório</span>
+        <span class="mat-tag">Medidas</span>
+      </div>
+      <a href="pages/materiais-laboratorio-ciencias-fisicas.html" class="mat-link">Ver materiais →</a>
     </div>
 
     <div class="mat-card">
-      <div class="mat-icon">🔌</div>
-      <div class="mat-title">Circuitos Elétricos</div>
-      <p class="mat-desc">Leis de Kirchhoff, análise nodal, thévenin e norton. Provas e listas resolvidas das disciplinas de circuitos I e II.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Kirchhoff</span>
-        <span class="mat-tag">Thévenin</span>
+      <div class="mat-icon">
+        <img src="assets/icons/flask.svg" alt="" class="icon-svg icon-svg--material">
       </div>
-      <a href="pages/materiais-circuitos.html" class="mat-link">Ver materiais →</a>
+      <div class="mat-title">Química Fundamental</div>
+      <p class="mat-desc">Conceitos-base, leitura de exercícios e revisão dos temas que mais aparecem nas primeiras avaliações da disciplina.</p>
+      <div class="mat-tags">
+        <span class="mat-tag">Estrutura</span>
+        <span class="mat-tag">Reações</span>
+      </div>
+      <a href="pages/materiais-quimica-fundamental.html" class="mat-link">Ver materiais →</a>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-icon">
+        <img src="assets/icons/lab.svg" alt="" class="icon-svg icon-svg--material">
+      </div>
+      <div class="mat-title">Lab. de Química</div>
+      <p class="mat-desc">Segurança, observação experimental e escrita de relatório para a parte prática da disciplina entrar de forma mais tranquila.</p>
+      <div class="mat-tags">
+        <span class="mat-tag">Bancada</span>
+        <span class="mat-tag">Relatório</span>
+      </div>
+      <a href="pages/materiais-laboratorio-quimica.html" class="mat-link">Ver materiais →</a>
     </div>
   </div>
 </section>
@@ -210,19 +285,27 @@
 
       <ul class="map-features reveal">
         <li class="map-feat-item">
-          <div class="map-feat-icon">🏢</div>
+          <div class="map-feat-icon">
+            <img src="assets/icons/faculty.svg" alt="" class="icon-svg icon-svg--map">
+          </div>
           <span>Mapa completo dos blocos A, B, C, D, E e F da Engenharia</span>
         </li>
         <li class="map-feat-item">
-          <div class="map-feat-icon">🔬</div>
+          <div class="map-feat-icon">
+            <img src="assets/icons/microscope.svg" alt="" class="icon-svg icon-svg--map">
+          </div>
           <span>Localização de todos os laboratórios e suas especialidades</span>
         </li>
         <li class="map-feat-item">
-          <div class="map-feat-icon">📍</div>
+          <div class="map-feat-icon">
+            <img src="assets/icons/pin.svg" alt="" class="icon-svg icon-svg--map">
+          </div>
           <span>Coordenação, RU, biblioteca, reprografia e serviços essenciais</span>
         </li>
         <li class="map-feat-item">
-          <div class="map-feat-icon">🚌</div>
+          <div class="map-feat-icon">
+            <img src="assets/icons/bus.svg" alt="" class="icon-svg icon-svg--map">
+          </div>
           <span>Pontos de ônibus, estacionamentos e rotas dentro do campus</span>
         </li>
       </ul>
@@ -247,7 +330,7 @@
     <div class="fluxo-header-inner reveal">
       <div class="section-label fluxo-section-label">Fluxo curricular interativo</div>
       <h2 class="section-title fluxo-section-title">Entenda o caminho<br>do seu curso.</h2>
-      <p class="section-desc">Clique em qualquer disciplina para ver seus pré-requisitos e o que ela desbloqueia. No modo <em>marcar cursadas</em>, registre seu progresso ao longo do curso.</p>
+    <p class="section-desc">Clique em qualquer disciplina para ver seus pré-requisitos e o que ela desbloqueia. No modo <em>marcar cursadas</em>, registre seu progresso ao longo do curso.</p>
     </div>
   </div>
   <div class="fluxo-embed reveal">
@@ -259,7 +342,7 @@
         loading="lazy"
       ></iframe>
     <p class="fluxo-note">
-      Grade: Eng. Elétrica — Sistemas Eletrônicos (69A) · UFJF
+      Fluxo interativo com seleção entre Sistemas Eletrônicos, Sistemas de Potência, Robótica e Energia.
     </p>
   </div>
 </div>
@@ -333,8 +416,14 @@
   <h2 class="cta-title">Seu semestre começa<br><span>muito melhor</span> agora.</h2>
   <p class="cta-desc">Acesse materiais, explore o campus e aproveite tudo que o HELPIEEE preparou para você. Gratuito, sempre.</p>
   <div class="cta-buttons">
-    <a href="pages/materiais.html" class="btn-white">📚 Ver todos os materiais</a>
-    <a href="pages/mapa.html" class="btn-outline-white">🗺️ Explorar o mapa</a>
+    <a href="pages/materiais.html" class="btn-white">
+      <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--button">
+      Ver todos os materiais
+    </a>
+    <a href="pages/mapa.html" class="btn-outline-white">
+      <img src="assets/icons/map.svg" alt="" class="icon-svg icon-svg--button icon-svg--button-light">
+      Explorar o mapa
+    </a>
   </div>
 </div>
 
