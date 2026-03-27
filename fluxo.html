@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluxo Curricular — Eng. Elétrica UFJF</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-dark: #003057;
+    --blue-mid:  #00629B;
+    --blue-light:#0085CA;
+    --bg:        #F4F6FB;
+    --white:     #ffffff;
+    --text:      #0A1628;
+    --muted:     #5A6A85;
+    --border:    rgba(0,98,155,0.13);
+
+    --c-idle:       #ffffff;
+    --c-idle-border:rgba(0,98,155,0.18);
+    --c-hover:      #EBF4FB;
+    --c-active:     #00629B;
+    --c-active-text:#ffffff;
+    --c-prereq:     #FFF3E0;
+    --c-prereq-border:#F59200;
+    --c-unlocks:    #E3F6EE;
+    --c-unlocks-border:#1A8C5B;
+    --c-done:       #E8F5E9;
+    --c-done-border:#43A047;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  .flow-header {
+    background: var(--blue-dark);
+    padding: 32px 40px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .flow-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .flow-header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ── CONTROLS ───────────────────────────── */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 40px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .controls label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-toggle {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+
+  .btn-toggle.active, .btn-toggle:hover {
+    background: var(--blue-mid);
+    color: #fff;
+    border-color: var(--blue-mid);
+  }
+
+  .sep { width: 1px; height: 20px; background: var(--border); }
+
+  .info-bar {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ── GRID ───────────────────────────────── */
+  .flow-scroll {
+    overflow-x: auto;
+    padding: 32px 40px 48px;
+  }
+
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 160px);
+    gap: 0;
+    min-width: 1640px;
+    position: relative;
+  }
+
+  /* period column */
+  .period-col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 8px;
+    position: relative;
+  }
+
+  .period-col::after {
+    content: '';
+    position: absolute;
+    top: 48px; bottom: 0;
+    right: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .period-col:last-child::after { display: none; }
+
+  .period-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue-mid);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 4px 14px;
+    text-align: center;
+  }
+
+  /* discipline card */
+  .disc {
+    background: var(--c-idle);
+    border: 1.5px solid var(--c-idle-border);
+    border-radius: 8px;
+    padding: 10px 10px 9px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color .15s, background .15s, transform .12s, box-shadow .15s;
+    position: relative;
+    user-select: none;
+  }
+
+  .disc:hover {
+    background: var(--c-hover);
+    border-color: var(--blue-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,98,155,0.1);
+  }
+
+  .disc.active {
+    background: var(--c-active);
+    border-color: var(--c-active);
+    box-shadow: 0 4px 18px rgba(0,98,155,0.35);
+    transform: translateY(-1px);
+  }
+
+  .disc.prereq {
+    background: var(--c-prereq);
+    border-color: var(--c-prereq-border);
+  }
+
+  .disc.unlocks {
+    background: var(--c-unlocks);
+    border-color: var(--c-unlocks-border);
+  }
+
+  .disc.done {
+    background: var(--c-done);
+    border-color: var(--c-done-border);
+    opacity: 0.85;
+  }
+
+  .disc.done .disc-name { text-decoration: line-through; opacity: 0.6; }
+
+  .disc-code {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--blue-mid);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .disc.active .disc-code { color: rgba(255,255,255,0.65); }
+
+  .disc-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.35;
+  }
+
+  .disc.active .disc-name { color: #fff; }
+
+  .disc-credits {
+    margin-top: 6px;
+    font-size: 10px;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+  }
+
+  .disc.active .disc-credits { color: rgba(255,255,255,0.55); }
+
+  .disc-done-check {
+    position: absolute;
+    top: 7px; right: 8px;
+    font-size: 11px;
+    display: none;
+  }
+
+  .disc.done .disc-done-check { display: block; }
+
+  /* ── TOOLTIP ─────────────────────────────── */
+  .tooltip {
+    position: fixed;
+    background: var(--blue-dark);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 240px;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity .15s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  .tooltip.show { opacity: 1; }
+
+  .tooltip-title {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .tooltip-row {
+    color: rgba(255,255,255,0.65);
+    margin-top: 3px;
+  }
+
+  .tooltip-row span {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  /* ── SVG ARROWS ──────────────────────────── */
+  .arrows-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .arrow-line {
+    fill: none;
+    stroke: rgba(0,133,202,0.18);
+    stroke-width: 1.5;
+    stroke-dasharray: 4 3;
+    transition: stroke .15s, stroke-width .15s, opacity .15s;
+  }
+
+  .arrow-line.highlight-prereq {
+    stroke: #F59200;
+    stroke-width: 2;
+    stroke-dasharray: none;
+    opacity: 1;
+  }
+
+  .arrow-line.highlight-unlocks {
+    stroke: #1A8C5B;
+    stroke-width: 2;
+    stroke-dasharray: none;
+    opacity: 1;
+  }
+
+  .arrow-line.dimmed { opacity: 0.05; }
+
+  /* ── BOTTOM BAR ──────────────────────────── */
+  .bottom-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .bottom-bar strong {
+    color: var(--blue-mid);
+    font-weight: 600;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .progress-bar {
+    flex: 1;
+    max-width: 300px;
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--blue-mid);
+    border-radius: 3px;
+    transition: width .3s ease;
+    width: 0%;
+  }
+
+  .btn-reset {
+    margin-left: auto;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+  }
+
+  .btn-reset:hover { border-color: var(--blue-mid); color: var(--blue-mid); }
+</style>
+</head>
+<body>
+
+<div class="flow-header">
+  <h1>Fluxo Curricular — Eng. Elétrica: Sistemas Eletrônicos</h1>
+  <p>UFJF · 69A · Clique em uma disciplina para ver pré-requisitos e o que ela desbloqueia</p>
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#fff;border:1.5px solid rgba(0,98,155,0.25)"></div>
+      Disciplina
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#00629B"></div>
+      Selecionada
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#FFF3E0;border:1.5px solid #F59200"></div>
+      Pré-requisito
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#E3F6EE;border:1.5px solid #1A8C5B"></div>
+      Desbloqueia
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#E8F5E9;border:1.5px solid #43A047"></div>
+      Cursada ✓
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <label>Mostrar setas:</label>
+  <button class="btn-toggle active" id="btn-arrows" onclick="toggleArrows()">Ativado</button>
+  <div class="sep"></div>
+  <label>Modo:</label>
+  <button class="btn-toggle active" id="btn-mode-nav" onclick="setMode('navigate')">Navegar</button>
+  <button class="btn-toggle" id="btn-mode-mark" onclick="setMode('mark')">Marcar cursadas</button>
+  <div class="info-bar" id="info-bar">Clique em uma disciplina</div>
+</div>
+
+<div class="flow-scroll">
+  <div class="flow-grid" id="flow-grid">
+    <svg class="arrows-svg" id="arrows-svg"></svg>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <span>Disciplinas cursadas: <strong id="done-count">0</strong> / <strong id="total-count">0</strong></span>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <span id="credits-done">0 créditos concluídos</span>
+  <button class="btn-reset" onclick="resetDone()">Resetar progresso</button>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const curriculum = {
+  1: [
+    {code:"DCC199",name:"Algoritmos",credits:6,prereqs:[]},
+    {code:"FIS122",name:"Lab Ciências Físicas",credits:2,prereqs:[]},
+    {code:"MAT154",name:"Cálculo I",credits:4,prereqs:[]},
+    {code:"MAT155",name:"Geometria Analítica",credits:4,prereqs:[]},
+    {code:"QUI125",name:"Química Fundamental",credits:4,prereqs:[]},
+    {code:"QUI126",name:"Lab Química",credits:2,prereqs:[]},
+    {code:"CEL064",name:"Int Eng Elétrica",credits:2,prereqs:[]},
+  ],
+  2: [
+    {code:"EST028",name:"Introdução à Estatística",credits:4,prereqs:["MAT154"]},
+    {code:"FIS073",name:"Física I",credits:4,prereqs:["MAT154"]},
+    {code:"FIS077",name:"Lab Física I",credits:2,prereqs:["FIS122"]},
+    {code:"MAT156",name:"Cálculo II",credits:4,prereqs:["MAT154","MAT155"]},
+    {code:"MAT158",name:"Álgebra Linear",credits:4,prereqs:["MAT155"]},
+    {code:"ESA002",name:"Ecologia",credits:2,prereqs:["QUI125"]},
+  ],
+  3: [
+    {code:"FIS074",name:"Física II",credits:4,prereqs:["FIS073","MAT156"]},
+    {code:"MAT029",name:"Eq Diferenciais I",credits:4,prereqs:["MAT156"]},
+    {code:"MAT157",name:"Cálculo III",credits:4,prereqs:["MAT156"]},
+    {code:"CEL032",name:"Circuitos Lógicos",credits:4,prereqs:["DCC199"]},
+    {code:"ENE045",name:"Lab Eletrotécnica",credits:2,prereqs:["FIS077","QUI126"]},
+    {code:"ENE131",name:"Exp Gráfica Eng Elét.",credits:2,prereqs:[]},
+  ],
+  4: [
+    {code:"DCC008",name:"Cálculo Numérico",credits:4,prereqs:["DCC199","MAT156"]},
+    {code:"FIS075",name:"Física III",credits:4,prereqs:["FIS074","MAT157"]},
+    {code:"FIS081",name:"Fenôm Transporte",credits:4,prereqs:["FIS074"]},
+    {code:"MAT030",name:"Eq Diferenciais II",credits:4,prereqs:["MAT029"]},
+    {code:"CEL033",name:"Circuitos Lineares I",credits:4,prereqs:["MAT158","MAT029"]},
+    {code:"EPD097",name:"Engenharia e Sociedade",credits:2,prereqs:[]},
+  ],
+  5: [
+    {code:"FIS076",name:"Física IV",credits:4,prereqs:["FIS075"]},
+    {code:"CEL034",name:"Circuitos Lineares II",credits:4,prereqs:["CEL033","MAT030"]},
+    {code:"CEL065",name:"Eletromagnetismo",credits:4,prereqs:["FIS075","MAT030"]},
+    {code:"CEL066",name:"Sinais e Sistemas",credits:4,prereqs:["MAT030"]},
+    {code:"CEL117",name:"Fund Sist Trifásicos",credits:2,prereqs:["CEL033"]},
+    {code:"CEL040",name:"Eletrônica Analógica I",credits:4,prereqs:["CEL033","MAT030"]},
+  ],
+  6: [
+    {code:"CEL035",name:"Eletrônica Digital",credits:4,prereqs:["CEL032","CEL040"]},
+    {code:"CEL068",name:"Princ Comunicações",credits:4,prereqs:["CEL066","CEL040"]},
+    {code:"CEL101",name:"Eletromag Aplicado",credits:4,prereqs:["EST028","CEL065"]},
+    {code:"CEL112",name:"Controle Sist Din I",credits:4,prereqs:["CEL034","CEL066"]},
+    {code:"ENE083",name:"Fund Resist Materiais",credits:2,prereqs:["DCC008","FIS073"]},
+    {code:"ENE140",name:"Prog para Engenharia",credits:2,prereqs:["DCC199"]},
+    {code:"CEL115",name:"Eletrônica Analógica II",credits:4,prereqs:["CEL034","CEL040"]},
+  ],
+  7: [
+    {code:"CEL113",name:"Controle Sist Din II",credits:2,prereqs:["CEL112"]},
+    {code:"ENE125",name:"Fund Conv Energia",credits:4,prereqs:["CEL117","CEL065"]},
+    {code:"CEL069",name:"Microproc – Arq e Prog",credits:4,prereqs:["CEL035"]},
+    {code:"CEL071",name:"Lab Prototipagem",credits:2,prereqs:["CEL035","ENE140"]},
+    {code:"CEL073",name:"Redes de Comunicação I",credits:4,prereqs:["CEL115","CEL035"]},
+    {code:"CEL100",name:"Processam Sinais I",credits:4,prereqs:["CEL035","CEL066"]},
+    {code:"ENE143",name:"Prog Avançada",credits:4,prereqs:["CEL066","CEL035"]},
+  ],
+  8: [
+    {code:"CEL039",name:"Eletrônica Potência I",credits:4,prereqs:["ENE125","CEL040"]},
+    {code:"CEL078",name:"Instrumentação Eletrônica",credits:4,prereqs:["CEL069"]},
+    {code:"CEL080",name:"Soft Embarcado",credits:4,prereqs:["CEL069"]},
+    {code:"CEL110",name:"Disp Lógicos Programáveis",credits:4,prereqs:["CEL069"]},
+    {code:"CEL118",name:"Projetos de C.I.",credits:4,prereqs:["CEL115"]},
+  ],
+  9: [
+    {code:"ENE084",name:"Análise de Investimentos",credits:4,prereqs:["MAT156"]},
+    {code:"CEL116",name:"Eletrônica Potência II",credits:4,prereqs:["CEL039","CEL040"]},
+    {code:"ENE082",name:"Instalações Elétricas",credits:4,prereqs:["CEL117","ENE131"]},
+    {code:"ENE081",name:"Otimização",credits:4,prereqs:["DCC008","CEL033"]},
+    {code:"EXT014",name:"Proj Ext em Sist Eletr",credits:4,prereqs:["CEL069","CEL071"]},
+  ],
+  10: [
+    {code:"ENE064",name:"Estágio Eng Elétrica",credits:6,prereqs:[]},
+    {code:"TCC",name:"Trabalho de Conclusão",credits:6,prereqs:[]},
+  ],
+};
+
+// flatten
+const allDiscs = {};
+Object.entries(curriculum).forEach(([p, discs]) => {
+  discs.forEach(d => { allDiscs[d.code] = {...d, period: +p}; });
+});
+
+// build unlocks map
+const unlocks = {};
+Object.values(allDiscs).forEach(d => {
+  d.prereqs.forEach(pre => {
+    if (!unlocks[pre]) unlocks[pre] = [];
+    unlocks[pre].push(d.code);
+  });
+});
+
+let selectedCode = null;
+let showArrows = true;
+let mode = 'navigate'; // 'navigate' | 'mark'
+let doneSet = new Set(JSON.parse(localStorage.getItem('done') || '[]'));
+
+const totalDiscs = Object.values(allDiscs).length;
+const totalCredits = Object.values(allDiscs).reduce((s,d) => s+d.credits, 0);
+
+// ── BUILD DOM ─────────────────────────────────────────────────────────
+function build() {
+  const grid = document.getElementById('flow-grid');
+  // remove old period cols (keep svg)
+  grid.querySelectorAll('.period-col').forEach(e => e.remove());
+
+  for (let p = 1; p <= 10; p++) {
+    const col = document.createElement('div');
+    col.className = 'period-col';
+    col.dataset.period = p;
+
+    const label = document.createElement('div');
+    label.className = 'period-label';
+    label.textContent = p < 10 ? `${p}º per.` : '10º per.';
+    col.appendChild(label);
+
+    (curriculum[p] || []).forEach(d => {
+      const card = document.createElement('div');
+      card.className = 'disc';
+      card.id = `disc-${d.code}`;
+      card.dataset.code = d.code;
+      card.innerHTML = `
+        <div class="disc-done-check">✓</div>
+        <div class="disc-code">${d.code}</div>
+        <div class="disc-name">${d.name}</div>
+        <div class="disc-credits">${d.credits} cr.</div>
+      `;
+      card.addEventListener('click', () => handleClick(d.code));
+      card.addEventListener('mouseenter', e => showTooltip(e, d.code));
+      card.addEventListener('mousemove', e => moveTooltip(e));
+      card.addEventListener('mouseleave', hideTooltip);
+      col.appendChild(card);
+    });
+
+    grid.appendChild(col);
+  }
+
+  applyStates();
+  updateProgress();
+  if (showArrows) drawArrows();
+}
+
+// ── INTERACTION ───────────────────────────────────────────────────────
+function handleClick(code) {
+  if (mode === 'mark') {
+    if (doneSet.has(code)) doneSet.delete(code);
+    else doneSet.add(code);
+    localStorage.setItem('done', JSON.stringify([...doneSet]));
+    applyStates();
+    updateProgress();
+    return;
+  }
+
+  // navigate mode
+  if (selectedCode === code) {
+    selectedCode = null;
+    document.getElementById('info-bar').textContent = 'Clique em uma disciplina';
+  } else {
+    selectedCode = code;
+    const d = allDiscs[code];
+    const pre = d.prereqs.filter(c => allDiscs[c]);
+    const unl = (unlocks[code] || []).filter(c => allDiscs[c]);
+    document.getElementById('info-bar').textContent =
+      `${d.name} · ${pre.length} pré-req · desbloqueia ${unl.length}`;
+  }
+  applyStates();
+  if (showArrows) drawArrows();
+}
+
+function applyStates() {
+  const prereqSet = selectedCode ? new Set(allDiscs[selectedCode].prereqs) : new Set();
+  const unlockSet = selectedCode ? new Set(unlocks[selectedCode] || []) : new Set();
+
+  document.querySelectorAll('.disc').forEach(el => {
+    const code = el.dataset.code;
+    el.classList.remove('active','prereq','unlocks','done');
+    if (doneSet.has(code)) el.classList.add('done');
+    if (code === selectedCode) el.classList.add('active');
+    else if (prereqSet.has(code)) el.classList.add('prereq');
+    else if (unlockSet.has(code)) el.classList.add('unlocks');
+  });
+}
+
+// ── ARROWS ────────────────────────────────────────────────────────────
+function drawArrows() {
+  const svg = document.getElementById('arrows-svg');
+  svg.innerHTML = '';
+
+  const grid = document.getElementById('flow-grid');
+  const gridRect = grid.getBoundingClientRect();
+  const scrollLeft = grid.closest('.flow-scroll').scrollLeft;
+  const scrollTop  = grid.closest('.flow-scroll').scrollTop;
+
+  const prereqSet = selectedCode ? new Set(allDiscs[selectedCode].prereqs) : new Set();
+  const unlockSet = selectedCode ? new Set(unlocks[selectedCode] || []) : new Set();
+
+  // collect all edges
+  const edges = [];
+  Object.values(allDiscs).forEach(d => {
+    d.prereqs.forEach(pre => {
+      if (!allDiscs[pre]) return;
+      edges.push({from: pre, to: d.code});
+    });
+  });
+
+  const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+
+  ['default','prereq','unlocks'].forEach(type => {
+    const color = type === 'prereq' ? '#F59200' : type === 'unlocks' ? '#1A8C5B' : 'rgba(0,133,202,0.3)';
+    const marker = document.createElementNS('http://www.w3.org/2000/svg','marker');
+    marker.setAttribute('id', `arrow-${type}`);
+    marker.setAttribute('viewBox','0 0 10 10');
+    marker.setAttribute('refX','8');
+    marker.setAttribute('refY','5');
+    marker.setAttribute('markerWidth','5');
+    marker.setAttribute('markerHeight','5');
+    marker.setAttribute('orient','auto-start-reverse');
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d','M2 2L8 5L2 8');
+    path.setAttribute('fill','none');
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width','1.5');
+    path.setAttribute('stroke-linecap','round');
+    marker.appendChild(path);
+    defs.appendChild(marker);
+  });
+  svg.appendChild(defs);
+
+  edges.forEach(({from, to}) => {
+    const fromEl = document.getElementById(`disc-${from}`);
+    const toEl   = document.getElementById(`disc-${to}`);
+    if (!fromEl || !toEl) return;
+
+    const isPrereq  = selectedCode && prereqSet.has(from) && to === selectedCode;
+    const isUnlocks = selectedCode && from === selectedCode && unlockSet.has(to);
+    const isDimmed  = selectedCode && !isPrereq && !isUnlocks;
+
+    const fr = fromEl.getBoundingClientRect();
+    const tr = toEl.getBoundingClientRect();
+
+    const x1 = fr.right  - gridRect.left + scrollLeft;
+    const y1 = fr.top    + fr.height/2 - gridRect.top  + scrollTop;
+    const x2 = tr.left   - gridRect.left + scrollLeft - 2;
+    const y2 = tr.top    + tr.height/2 - gridRect.top  + scrollTop;
+
+    const cx1 = x1 + (x2-x1)*0.5;
+    const cx2 = x2 - (x2-x1)*0.5;
+
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', `M${x1},${y1} C${cx1},${y1} ${cx2},${y2} ${x2},${y2}`);
+
+    let cls = 'arrow-line';
+    let markerType = 'default';
+
+    if (isPrereq)       { cls += ' highlight-prereq';   markerType = 'prereq'; }
+    else if (isUnlocks) { cls += ' highlight-unlocks';  markerType = 'unlocks'; }
+    else if (isDimmed)  { cls += ' dimmed'; }
+
+    path.setAttribute('class', cls);
+    path.setAttribute('marker-end', `url(#arrow-${markerType})`);
+    svg.appendChild(path);
+  });
+}
+
+// ── TOOLTIP ───────────────────────────────────────────────────────────
+function showTooltip(e, code) {
+  const d = allDiscs[code];
+  const pre = d.prereqs.filter(c => allDiscs[c]).map(c => allDiscs[c].name);
+  const unl = (unlocks[code]||[]).filter(c => allDiscs[c]).map(c => allDiscs[c].name);
+  const tt = document.getElementById('tooltip');
+  tt.innerHTML = `
+    <div class="tooltip-title">${d.name}</div>
+    <div class="tooltip-row">Código: <span>${d.code}</span></div>
+    <div class="tooltip-row">Créditos: <span>${d.credits}</span></div>
+    ${pre.length ? `<div class="tooltip-row">Pré-req: <span>${pre.join(', ')}</span></div>` : ''}
+    ${unl.length ? `<div class="tooltip-row">Desbloqueia: <span>${unl.slice(0,3).join(', ')}${unl.length>3?'…':''}</span></div>` : ''}
+    ${mode==='mark' ? `<div class="tooltip-row" style="margin-top:6px;color:#7dd3a8">Clique para ${doneSet.has(code)?'desmarcar':'marcar como cursada'}</div>` : ''}
+  `;
+  tt.classList.add('show');
+  moveTooltip(e);
+}
+
+function moveTooltip(e) {
+  const tt = document.getElementById('tooltip');
+  const x = e.clientX + 14, y = e.clientY - 10;
+  const overRight = x + 250 > window.innerWidth;
+  tt.style.left = (overRight ? e.clientX - 260 : x) + 'px';
+  tt.style.top  = y + 'px';
+}
+
+function hideTooltip() {
+  document.getElementById('tooltip').classList.remove('show');
+}
+
+// ── PROGRESS ─────────────────────────────────────────────────────────
+function updateProgress() {
+  const n = doneSet.size;
+  const cr = [...doneSet].reduce((s,c) => s + (allDiscs[c]?.credits||0), 0);
+  document.getElementById('done-count').textContent = n;
+  document.getElementById('total-count').textContent = totalDiscs;
+  document.getElementById('credits-done').textContent = `${cr} / ${totalCredits} créditos`;
+  document.getElementById('progress-fill').style.width = (n/totalDiscs*100) + '%';
+}
+
+function resetDone() {
+  doneSet.clear();
+  localStorage.removeItem('done');
+  applyStates();
+  updateProgress();
+  if (showArrows) drawArrows();
+}
+
+// ── CONTROLS ─────────────────────────────────────────────────────────
+function toggleArrows() {
+  showArrows = !showArrows;
+  const btn = document.getElementById('btn-arrows');
+  btn.textContent = showArrows ? 'Ativado' : 'Desativado';
+  btn.classList.toggle('active', showArrows);
+  if (showArrows) drawArrows();
+  else document.getElementById('arrows-svg').innerHTML = '';
+}
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-mode-nav').classList.toggle('active', m==='navigate');
+  document.getElementById('btn-mode-mark').classList.toggle('active', m==='mark');
+  if (m === 'navigate') {
+    document.getElementById('info-bar').textContent = 'Clique em uma disciplina';
+  } else {
+    selectedCode = null;
+    applyStates();
+    document.getElementById('info-bar').textContent = 'Clique para marcar disciplinas cursadas';
+    if (showArrows) drawArrows();
+  }
+}
+
+// ── RESIZE / SCROLL ───────────────────────────────────────────────────
+let rafId;
+function redrawArrows() {
+  cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(() => { if (showArrows) drawArrows(); });
+}
+
+window.addEventListener('resize', redrawArrows);
+document.querySelector('.flow-scroll') && document.querySelector('.flow-scroll').addEventListener('scroll', redrawArrows);
+
+// ── INIT ──────────────────────────────────────────────────────────────
+build();
+</script>
+</body>
+</html>
