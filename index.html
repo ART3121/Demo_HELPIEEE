@@ -5,14 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HELPIEEE — Guia do Calouro · IEEE UFJF</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/pages/home.css">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=20260327b">
 </head>
 <body class="page-home" id="top">
-<svg class="page-trail-layer" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
-  <path class="page-trail-guide" id="page-trail-guide"></path>
-  <g id="page-trail-dots"></g>
-</svg>
-
 <!-- NAV -->
 <nav>
   <a href="#top" class="nav-logo">
@@ -32,6 +27,10 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
+  <svg class="page-trail-layer" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+    <path class="page-trail-guide" id="page-trail-guide"></path>
+    <g id="page-trail-dots"></g>
+  </svg>
 
   <!-- Float left -->
   <div class="hero-float hero-float-left">
@@ -57,29 +56,30 @@
     </div>
   </div>
 
-  <div class="hero-tag">
-    IEEE Student Branch · UFJF · Engenharia Elétrica
+  <div class="hero-content">
+    <div class="hero-tag">
+      IEEE Student Branch · UFJF · Engenharia Elétrica
+    </div>
+
+    <h1 class="hero-title">
+      Bem-vindo à<br>
+      <span class="highlight">UFJF,</span><br>
+      <span class="accent">calouro.</span>
+    </h1>
+
+    <p class="hero-sub">
+      O <strong>HELPIEEE</strong> é o guia definitivo do calouro de Engenharia Elétrica da UFJF —
+      feito por quem já passou por tudo isso e sobreviveu.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="pages/primeiros-passos.html" class="btn-primary">Explorar o guia →</a>
+      <a href="pages/materiais.html" class="btn-secondary">
+        <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--button">
+        Ver materiais
+      </a>
+    </div>
   </div>
-
-  <h1 class="hero-title">
-    Bem-vindo à<br>
-    <span class="highlight">UFJF,</span><br>
-    <span class="accent">calouro.</span>
-  </h1>
-
-  <p class="hero-sub">
-    O <strong>HELPIEEE</strong> é o guia definitivo do calouro de Engenharia Elétrica da UFJF —
-    feito por quem já passou por tudo isso e sobreviveu.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="pages/primeiros-passos.html" class="btn-primary">Explorar o guia →</a>
-    <a href="pages/materiais.html" class="btn-secondary">
-      <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--button">
-      Ver materiais
-    </a>
-  </div>
-
 
 </div>
 
@@ -428,7 +428,7 @@
   </div>
 </footer>
 
-<script src="assets/js/pages/home.js" defer></script>
+<script src="assets/js/pages/home.js?v=20260327b" defer></script>
 </body>
 </html>
 

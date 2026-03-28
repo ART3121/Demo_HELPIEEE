@@ -53,8 +53,8 @@ if (pageTrailGuide && pageTrailDotsGroup && !reducedMotionQuery.matches) {
   const svgWidth = 1600;
   const svgHeight = 900;
   const screenPadding = 120;
-  const dotCount = 20;
-  const dotSpacing = 0.03;
+  const dotCount = 26;
+  const dotSpacing = 0.026;
   const trailSpan = dotCount * dotSpacing;
   const dots = [];
   let trailFrame = 0;
@@ -216,11 +216,11 @@ if (pageTrailGuide && pageTrailDotsGroup && !reducedMotionQuery.matches) {
     cancelAnimationFrame(trailFrame);
 
     pageTrailGuide.setAttribute('d', buildTrailPath());
-    pageTrailGuide.style.opacity = '0.34';
+    pageTrailGuide.style.opacity = '0.46';
 
     const length = pageTrailGuide.getTotalLength();
     const start = performance.now();
-    const duration = 4600 + Math.random() * 1600;
+    const duration = 3600 + Math.random() * 1200;
 
     const frame = (now) => {
       const elapsed = (now - start) / duration;
@@ -239,8 +239,8 @@ if (pageTrailGuide && pageTrailDotsGroup && !reducedMotionQuery.matches) {
         const taper = Math.max(0, 1 - index / (dotCount - 1));
         const fadeIn = progress < 0.045 ? progress / 0.045 : 1;
         const fadeOut = progress > 0.955 ? (1 - progress) / 0.045 : 1;
-        const opacity = (0.16 + taper * 0.76) * fadeIn * fadeOut;
-        const radius = 1.3 + taper * 2.9;
+        const opacity = (0.22 + taper * 0.78) * fadeIn * fadeOut;
+        const radius = 1.7 + taper * 3.3;
 
         dot.setAttribute('cx', point.x.toFixed(2));
         dot.setAttribute('cy', point.y.toFixed(2));
@@ -253,7 +253,7 @@ if (pageTrailGuide && pageTrailDotsGroup && !reducedMotionQuery.matches) {
       } else {
         hideTrailDots();
         pageTrailGuide.style.opacity = '0';
-        trailTimer = window.setTimeout(runTrail, 1600 + Math.random() * 2200);
+        trailTimer = window.setTimeout(runTrail, 1000 + Math.random() * 1600);
       }
     };
 
