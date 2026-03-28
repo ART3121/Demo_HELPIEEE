@@ -69,6 +69,22 @@ let mode = 'navigate';
 let doneSet = new Set();
 let rafId;
 
+function getCurriculumLabel() {
+  return activeCurriculum.title.replace('Fluxo Curricular — Eng. Elétrica: ', '');
+}
+
+function notifyParent() {
+  window.parent?.postMessage(
+    {
+      type: 'helpieee-flow-change',
+      curriculumKey: activeCurriculumKey,
+      label: getCurriculumLabel(),
+      subtitle: activeCurriculum.subtitle
+    },
+    '*'
+  );
+}
+
 function getDiscId(code) {
   const slug = code.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return `disc-${slug}`;
@@ -406,6 +422,7 @@ function applyCurriculum(curriculumKey) {
   activeCurriculum = curricula[curriculumKey];
   selectedCode = null;
   doneSet = loadDoneSet(curriculumKey);
+  document.body.dataset.curriculum = curriculumKey;
 
   document.getElementById('flow-title').textContent = activeCurriculum.title;
   document.getElementById('flow-subtitle').textContent = activeCurriculum.subtitle;
@@ -416,6 +433,7 @@ function applyCurriculum(curriculumKey) {
   }
 
   build();
+  notifyParent();
 }
 
 function bindControls() {

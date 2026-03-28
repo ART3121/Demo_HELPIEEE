@@ -30,6 +30,36 @@
     color: var(--text);
   }
 
+  body.page-flow[data-curriculum='sistemas-potencia'] {
+    --blue-dark: #26211a;
+    --blue-mid: #c28f18;
+    --blue-light: #e7bb4a;
+    --bg: #f9f5e9;
+    --border: rgba(110, 84, 26, 0.16);
+    --c-hover: #fff7df;
+    --c-active: #c28f18;
+  }
+
+  body.page-flow[data-curriculum='robotica-automacao'] {
+    --blue-dark: #4e2d1e;
+    --blue-mid: #1d8b62;
+    --blue-light: #5ab184;
+    --bg: #f4f7f5;
+    --border: rgba(44, 93, 67, 0.16);
+    --c-hover: #eef8f2;
+    --c-active: #1d8b62;
+  }
+
+  body.page-flow[data-curriculum='energia'] {
+    --blue-dark: #5b3414;
+    --blue-mid: #d98310;
+    --blue-light: #12a39a;
+    --bg: #fff8ef;
+    --border: rgba(133, 78, 18, 0.15);
+    --c-hover: #fff1dc;
+    --c-active: #d98310;
+  }
+
   /* ── HEADER ─────────────────────────────── */
   .flow-header {
     background: var(--blue-dark);

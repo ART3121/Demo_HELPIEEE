@@ -28,26 +28,10 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-network hero-network-left" aria-hidden="true">
-    <svg viewBox="0 0 280 180" class="hero-network-svg">
-      <path class="hero-network-path" d="M14 98H84L118 60H178L222 112H266"></path>
-      <path class="hero-network-path hero-network-path--alt" d="M52 34V80L92 118H150L194 80H238"></path>
-      <circle class="hero-network-node" cx="84" cy="98" r="5"></circle>
-      <circle class="hero-network-node" cx="118" cy="60" r="5"></circle>
-      <circle class="hero-network-node" cx="178" cy="60" r="5"></circle>
-      <circle class="hero-network-node" cx="222" cy="112" r="5"></circle>
-    </svg>
-  </div>
-  <div class="hero-network hero-network-right" aria-hidden="true">
-    <svg viewBox="0 0 280 180" class="hero-network-svg">
-      <path class="hero-network-path" d="M18 126H96L130 88H192L226 52H262"></path>
-      <path class="hero-network-path hero-network-path--alt" d="M44 44H118L154 82V136H236"></path>
-      <circle class="hero-network-node" cx="96" cy="126" r="5"></circle>
-      <circle class="hero-network-node" cx="130" cy="88" r="5"></circle>
-      <circle class="hero-network-node" cx="192" cy="88" r="5"></circle>
-      <circle class="hero-network-node" cx="226" cy="52" r="5"></circle>
-    </svg>
-  </div>
+  <svg class="hero-trail-layer" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+    <path class="hero-trail-guide" id="hero-trail-guide"></path>
+    <g id="hero-trail-dots"></g>
+  </svg>
 
   <!-- Float left -->
   <div class="hero-float hero-float-left">

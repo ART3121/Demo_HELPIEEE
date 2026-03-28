@@ -1,7 +1,7 @@
 window.FLOW_CURRICULA = {
   "sistemas-eletronicos": {
     title: "Fluxo Curricular — Eng. Elétrica: Sistemas Eletrônicos",
-    subtitle: "UFJF · 69A · Clique em uma disciplina para ver pré-requisitos e o que ela desbloqueia",
+    subtitle: "UFJF · 69A · Clique nas disciplinas para acompanhar pré-requisitos e destravamentos",
     unitShort: "cr.",
     unitLong: "créditos",
     valueLabel: "Créditos",
@@ -87,7 +87,7 @@ window.FLOW_CURRICULA = {
   },
   "sistemas-potencia": {
     title: "Fluxo Curricular — Eng. Elétrica: Sistemas de Potência",
-    subtitle: "UFJF · Habilitação em Sistemas de Potência · Baseado na grade enviada",
+    subtitle: "UFJF · Engenharia Elétrica — Sistemas de Potência",
     unitShort: "cr.",
     unitLong: "créditos",
     valueLabel: "Créditos",
@@ -172,7 +172,7 @@ window.FLOW_CURRICULA = {
   },
   "robotica-automacao": {
     title: "Fluxo Curricular — Eng. Elétrica: Robótica e Automação Industrial",
-    subtitle: "UFJF · PPC 2023 · Baseado na grade enviada de Robótica e Automação Industrial",
+    subtitle: "UFJF · Engenharia Elétrica — Robótica e Automação Industrial · PPC 2023",
     unitShort: "cr.",
     unitLong: "créditos",
     valueLabel: "Créditos",
@@ -258,7 +258,7 @@ window.FLOW_CURRICULA = {
   },
   "energia": {
     title: "Fluxo Curricular — Eng. Elétrica: Energia",
-    subtitle: "UFJF · Currículo 01.2023 · Baseado na matriz curricular enviada do curso de Energia",
+    subtitle: "UFJF · Engenharia Elétrica — Energia · currículo 01.2023",
     unitShort: "h",
     unitLong: "horas",
     valueLabel: "Carga",
