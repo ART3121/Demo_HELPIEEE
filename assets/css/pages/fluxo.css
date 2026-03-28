@@ -22,7 +22,10 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
 
   body.page-flow {
     font-family: 'Open Sans', sans-serif;
@@ -476,6 +479,10 @@
   }
 
   @media (max-width: 720px) {
+    html {
+      scroll-padding-top: 76px;
+    }
+
     .flow-header {
       padding: 20px 16px 18px;
     }
@@ -491,8 +498,25 @@
     }
 
     .legend {
-      gap: 10px 14px;
+      gap: 10px;
       margin-top: 14px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .legend::-webkit-scrollbar {
+      display: none;
+    }
+
+    .legend-item {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .controls,
@@ -529,6 +553,10 @@
     .btn-toggle {
       flex: 1 1 calc(50% - 6px);
       text-align: center;
+    }
+
+    #btn-arrows {
+      flex-basis: 100%;
     }
 
     .sep {
@@ -573,6 +601,7 @@
       gap: 12px;
       padding-top: 10px;
       padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      font-size: 11px;
     }
 
     .progress-bar {

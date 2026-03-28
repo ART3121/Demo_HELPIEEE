@@ -3,6 +3,7 @@ const rootElement = document.documentElement;
 
 if (homeIntro && rootElement.classList.contains('has-home-intro')) {
   let introClosed = false;
+  const introDelay = window.matchMedia('(max-width: 640px)').matches ? 1350 : 1900;
 
   const closeHomeIntro = () => {
     if (introClosed) {
@@ -13,12 +14,18 @@ if (homeIntro && rootElement.classList.contains('has-home-intro')) {
     rootElement.classList.add('home-intro-leaving');
 
     window.setTimeout(() => {
+      try {
+        window.sessionStorage.setItem('helpieee-home-intro-seen', 'true');
+      } catch (error) {
+        // Ignore storage failures and keep the intro behavior in-memory only.
+      }
+
       rootElement.classList.remove('has-home-intro', 'home-intro-leaving');
       homeIntro.remove();
     }, 620);
   };
 
-  window.setTimeout(closeHomeIntro, 1900);
+  window.setTimeout(closeHomeIntro, introDelay);
   homeIntro.addEventListener('click', closeHomeIntro, { once: true });
 }
 

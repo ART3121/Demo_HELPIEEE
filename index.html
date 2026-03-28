@@ -9,13 +9,21 @@
 <script>
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!reducedMotion) {
+  let introSeen = false;
+
+  try {
+    introSeen = window.sessionStorage.getItem('helpieee-home-intro-seen') === 'true';
+  } catch (error) {
+    introSeen = false;
+  }
+
+  if (!reducedMotion && !introSeen) {
     document.documentElement.classList.add('has-home-intro');
   }
 })();
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=20260328p">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=20260328q">
 </head>
 <body class="page-home" id="top">
 <div class="home-intro" id="home-intro" aria-hidden="true">
@@ -112,7 +120,7 @@
       </div>
       <div class="index-spotlight-copy">
         <span class="index-spotlight-kicker">Biblioteca de materiais</span>
-        <h3 class="index-spotlight-title">Todas as páginas das disciplinas do 1º período em um único atalho.</h3>
+        <h3 class="index-spotlight-title">Todas as páginas das disciplinas do 1º período.</h3>
         <p class="index-spotlight-desc">Entre por aqui para abrir a visão geral das matérias, chegar nas páginas específicas e acessar provas antigas sem precisar caçar links pela home.</p>
         <div class="index-spotlight-tags" aria-hidden="true">
           <span class="index-spotlight-tag">Algoritmos</span>
@@ -406,6 +414,6 @@
   </div>
 </footer>
 
-<script src="assets/js/pages/home.js?v=20260328c" defer></script>
+<script src="assets/js/pages/home.js?v=20260328d" defer></script>
 </body>
 </html>
