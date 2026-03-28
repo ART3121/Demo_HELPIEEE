@@ -134,28 +134,32 @@
     pointer-events: none;
   }
 
-  .hero-trail-layer {
-    position: absolute;
+  .page-trail-layer {
+    position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.95;
+    opacity: 0.92;
+    overflow: visible;
   }
 
-  .hero-trail-guide {
+  .page-trail-guide {
     fill: none;
-    stroke: rgba(0, 133, 202, 0.1);
-    stroke-width: 1.8;
+    stroke: rgba(0, 133, 202, 0.2);
+    stroke-width: 1.6;
     stroke-linecap: round;
-    stroke-dasharray: 4 18;
+    stroke-linejoin: round;
+    stroke-dasharray: 1 18;
+    opacity: 0;
+    transition: opacity 0.45s ease;
   }
 
-  .hero-trail-dot {
-    fill: rgba(0, 133, 202, 0.88);
+  .page-trail-dot {
+    fill: rgba(0, 133, 202, 0.92);
     opacity: 0;
-    filter: drop-shadow(0 0 8px rgba(0, 133, 202, 0.32));
+    filter: drop-shadow(0 0 10px rgba(0, 133, 202, 0.36));
   }
 
   .hero-network {
@@ -1147,7 +1151,7 @@
     nav { padding: 0 24px; }
     .nav-links { display: none; }
     .hero { padding: 100px 24px 60px; }
-    .hero-trail-layer { opacity: 0.72; }
+    .page-trail-layer { opacity: 0.78; }
     .hero-network { display: none; }
     .hero-float { display: none; }
     .hero-stats { gap: 24px; flex-wrap: wrap; justify-content: center; }
