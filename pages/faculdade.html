@@ -4,13 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Funcionamento da Faculdade — HELPIEEE</title>
+<link rel="icon" type="image/png" href="../assets/images/branding/helpieee-favicon.png">
+<script src="../assets/js/theme.js?v=20260328a"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/pages/content-page.css?v=20260327d">
+<link rel="stylesheet" href="../assets/css/pages/content-page.css?v=20260328q">
 </head>
 <body class="page-content">
 <header class="site-topbar">
   <a href="../index.html" class="site-brand">
-    <span class="site-brand-badge">H!</span>
+    <span class="site-brand-badge" aria-hidden="true">
+      <img src="../assets/images/branding/helpieee-logo.png" alt="" class="brand-mark">
+    </span>
     <span class="site-brand-text">HELP<span>IEEE</span></span>
   </a>
   <nav class="topbar-nav">
@@ -28,21 +32,53 @@
     <div class="page-hero-copy reveal">
       <div class="page-kicker">Vida acadêmica</div>
       <h1 class="page-title">Como a faculdade funciona <span>na prática</span>.</h1>
-      <p class="page-intro">Tem uma parte da graduação que quase ninguém explica direito no começo: sistema, prazo, frequência, ajuste de matrícula e pré-requisito. Esta página está aqui para deixar isso menos nebuloso e evitar dor de cabeça boba no meio do semestre.</p>
+      <p class="page-intro">Tem uma parte da graduação que quase ninguém explica direito no começo: sistema, prazo, frequência, ajuste de matrícula, pré-requisito e um monte de sigla que parece linguagem secreta. Esta página está aqui para traduzir isso e evitar dor de cabeça boba no meio do semestre.</p>
       <div class="hero-actions">
-        <a href="fluxo.html" class="button-primary">Abrir fluxo curricular</a>
-        <a href="primeiros-passos.html" class="button-secondary">Voltar ao roteiro inicial</a>
+        <a href="#glossario" class="button-primary">Abrir glossário UFJF</a>
+        <a href="fluxo.html" class="button-secondary">Ver fluxo curricular</a>
       </div>
     </div>
 
     <aside class="hero-panel reveal">
       <div class="hero-panel-title">Temas centrais</div>
       <ul class="hero-panel-list">
-        <li><span class="bullet">01</span><span>SIGA, matrícula e leitura do semestre sem susto.</span></li>
-        <li><span class="bullet">02</span><span>Fluxo curricular e pré-requisitos para não travar sem perceber.</span></li>
-        <li><span class="bullet">03</span><span>Frequência, prazos e rotina mínima para o semestre não fugir da mão.</span></li>
+        <li><span class="bullet">01</span><span>SIGA, matrícula e prazos sem depender de adivinhação.</span></li>
+        <li><span class="bullet">02</span><span>IRA, RAG, RU e outras siglas traduzidas para o português de calouro.</span></li>
+        <li><span class="bullet">03</span><span>Fluxo curricular e pré-requisitos para não travar matérias sem perceber.</span></li>
       </ul>
     </aside>
+  </section>
+
+  <section class="section-block" id="onde-acontece">
+    <div class="section-head">
+      <div class="section-kicker">Espaços da rotina</div>
+      <h2 class="section-title">Dois prédios que entram cedo no seu vocabulário.</h2>
+      <p class="section-text">No começo é normal misturar nomes e plataformas. Essas referências ajudam a ligar as siglas aos lugares onde boa parte da sua vida acadêmica acontece.</p>
+    </div>
+
+    <div class="photo-grid two">
+      <figure class="photo-card reveal">
+        <div class="photo-media">
+          <img src="../assets/images/places/faculdade-engenharia.webp" alt="Fachada da Faculdade de Engenharia da UFJF" loading="lazy">
+        </div>
+        <figcaption class="photo-body">
+          <div class="photo-eyebrow">Faculdade de Engenharia</div>
+          <h3 class="photo-title">Aqui muita coisa deixa de ser abstrata.</h3>
+          <p class="photo-text">É um dos lugares que mais ganha peso conforme o curso avança: coordenação, salas, laboratórios, técnicos e boa parte da vida de Engenharia passam por aqui.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-card reveal">
+        <div class="photo-media">
+          <img src="../assets/images/places/ice-ufjf.webp" alt="Prédio do Instituto de Ciências Exatas da UFJF visto do campus" loading="lazy">
+        </div>
+        <figcaption class="photo-body">
+          <div class="photo-eyebrow">ICE</div>
+          <h3 class="photo-title">É onde o ciclo básico costuma te encontrar primeiro.</h3>
+          <p class="photo-text">Cálculo, Física, Química, computação e outras bases do começo do curso passam muito por esse espaço, então ele entra cedo na sua memória.</p>
+        </figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="section-block">
@@ -52,29 +88,85 @@
       <p class="section-text">Nem tudo precisa ser dominado na primeira semana, mas alguns blocos valem atenção cedo porque afetam matrícula, planejamento e risco de atraso no curso.</p>
     </div>
 
-    <div class="card-grid two">
+    <div class="split-grid">
       <article class="info-card reveal">
-        <div class="card-eyebrow">Sistema acadêmico</div>
-        <h3 class="card-title">SIGA e acompanhamento do semestre</h3>
-        <p class="card-text">Use o sistema como painel de controle. Grade, horários, situação das disciplinas e comunicados importantes precisam estar no seu radar durante todo o período.</p>
+        <div class="card-eyebrow">Painel da vida acadêmica</div>
+        <h3 class="card-title">O que convém ter no radar logo cedo</h3>
+        <p class="card-text">Você não precisa decorar tudo, mas precisa saber onde cada coisa mora. Isso reduz muito a sensação de estar perdido em um sistema grande demais.</p>
+        <ul class="mini-list">
+          <li><span class="bullet">S</span><span><strong>SIGA</strong> para grade, histórico, comprovantes, matrícula e boa parte das consultas do semestre.</span></li>
+          <li><span class="bullet">P</span><span><strong>Prazos</strong> do calendário acadêmico para matrícula, 2ª chamada, trancamentos e ajustes.</span></li>
+          <li><span class="bullet">C</span><span><strong>CAT</strong> quando a dúvida vira documento, atendimento oficial ou problema cadastral.</span></li>
+        </ul>
       </article>
 
       <article class="info-card reveal">
-        <div class="card-eyebrow">Planejamento</div>
-        <h3 class="card-title">Fluxo e pré-requisitos</h3>
-        <p class="card-text">Entender o encadeamento das matérias evita surpresa desagradável lá na frente. Uma disciplina travada hoje pode empurrar duas ou três depois.</p>
+        <div class="card-eyebrow">Regras do jogo</div>
+        <h3 class="card-title">O que costuma pegar quem deixa para depois</h3>
+        <p class="card-text">Boa parte do estresse acadêmico não nasce da matéria em si, mas de regra mal entendida ou prazo perdido por bobeira.</p>
+        <ul class="mini-list">
+          <li><span class="bullet">R</span><span><strong>RAG</strong> é o regulamento da graduação e entra em cena sempre que surge uma dúvida de regra.</span></li>
+          <li><span class="bullet">F</span><span><strong>Fluxo e pré-requisitos</strong> mostram a ordem das matérias e evitam travas invisíveis.</span></li>
+          <li><span class="bullet">A</span><span><strong>Frequência, 2ª chamada e trancamento</strong> não são detalhes: são parte do jogo acadêmico.</span></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block" id="glossario">
+    <div class="section-head">
+      <div class="section-kicker">Glossário UFJF</div>
+      <h2 class="section-title">As siglas e termos que todo mundo cita como se fossem óbvios.</h2>
+      <p class="section-text">Não é falta de atenção sua: a universidade realmente tem um vocabulário próprio. Aqui vai um tradutor rápido para você não ficar boiando quando essas palavras aparecerem em conversa, e-mail ou sistema.</p>
+    </div>
+
+    <div class="glossary-grid">
+      <article class="glossary-item reveal">
+        <div class="glossary-term">IRA</div>
+        <h3 class="glossary-title">Índice de Rendimento Acadêmico</h3>
+        <p class="glossary-desc">É um retrato do seu desempenho no curso. Na prática, costuma aparecer em seleção de bolsas, intercâmbio, editais e alguns critérios de desempate.</p>
       </article>
 
-      <article class="info-card reveal">
-        <div class="card-eyebrow">Processos</div>
-        <h3 class="card-title">Matrícula, ajuste e trancamento</h3>
-        <p class="card-text">Esses procedimentos parecem distantes no começo, mas é melhor saber onde eles entram e quais prazos costumam ser críticos.</p>
+      <article class="glossary-item reveal">
+        <div class="glossary-term">RAG</div>
+        <h3 class="glossary-title">Regulamento Acadêmico da Graduação</h3>
+        <p class="glossary-desc">É o livro de regras da graduação. Quando rola dúvida sobre matrícula, frequência, trancamento, prazos ou procedimento, é nele que a UFJF se baseia.</p>
       </article>
 
-      <article class="info-card reveal">
-        <div class="card-eyebrow">Rotina</div>
-        <h3 class="card-title">Frequência e presença real</h3>
-        <p class="card-text">A matéria pode ser difícil, mas faltar sem estratégia costuma piorar tudo. Saber onde você pode flexibilizar e onde não pode já ajuda muito.</p>
+      <article class="glossary-item reveal">
+        <div class="glossary-term">SIGA</div>
+        <h3 class="glossary-title">Sistema Integrado de Gestão Acadêmica</h3>
+        <p class="glossary-desc">É o painel da sua vida acadêmica: grade, histórico, comprovantes, trancamento, matrícula e vários serviços do dia a dia passam por ele.</p>
+      </article>
+
+      <article class="glossary-item reveal">
+        <div class="glossary-term">RU</div>
+        <h3 class="glossary-title">Restaurante Universitário</h3>
+        <p class="glossary-desc">É onde você resolve boa parte da sua sobrevivência alimentar no campus. Para usar sem dor de cabeça, precisa de carteirinha e crédito carregado.</p>
+      </article>
+
+      <article class="glossary-item reveal">
+        <div class="glossary-term">CAT</div>
+        <h3 class="glossary-title">Central de Atendimento</h3>
+        <p class="glossary-desc">Pensa nela como um balcão oficial da universidade. Quando a questão envolve cadastro, atendimento formal ou orientação administrativa, ela costuma entrar no caminho.</p>
+      </article>
+
+      <article class="glossary-item reveal">
+        <div class="glossary-term">CGCO / TI</div>
+        <h3 class="glossary-title">Central de Serviços de Tecnologia</h3>
+        <p class="glossary-desc">É o lugar para senhas, rede, sistemas, e-mail institucional, Moodle e outros pepinos digitais. Quando a dúvida for tecnológica, vale começar por ali.</p>
+      </article>
+
+      <article class="glossary-item reveal">
+        <div class="glossary-term">Pré-requisito</div>
+        <h3 class="glossary-title">A matéria que destrava a próxima</h3>
+        <p class="glossary-desc">É a disciplina que você precisa cumprir antes de outra. Ignorar isso no começo bagunça o fluxo depois e pode atrasar mais matérias do que parece.</p>
+      </article>
+
+      <article class="glossary-item reveal">
+        <div class="glossary-term">Trancamento</div>
+        <h3 class="glossary-title">Pausa oficial, não sumiço improvisado</h3>
+        <p class="glossary-desc">É o procedimento formal para interromper disciplina ou curso dentro das regras e dos prazos. Deixar de frequentar sem entender isso costuma dar problema.</p>
       </article>
     </div>
   </section>
@@ -110,11 +202,11 @@
   <section class="callout-panel reveal">
     <div class="section-kicker">Conexões úteis</div>
     <h2 class="section-title">Faculdade entendida, agora planeje o resto do percurso.</h2>
-      <p class="section-text">Quando você entende como a faculdade se organiza, fica mais fácil planejar matéria, pedir ajuda na hora certa e não ser pego de surpresa lá na frente.</p>
+      <p class="section-text">Quando você entende como a faculdade se organiza, fica mais fácil pedir ajuda na hora certa, usar o fluxo com inteligência e não se assustar com cada sigla nova que aparece no semestre.</p>
     <div class="button-row">
       <a href="fluxo.html" class="button-primary">Ver fluxo</a>
       <a href="materiais.html" class="button-secondary">Ir para materiais</a>
-      <a href="comunidade.html" class="button-secondary">Abrir comunidade</a>
+      <a href="primeiros-passos.html#infraestrutura" class="button-secondary">Voltar ao básico prático</a>
     </div>
   </section>
 
@@ -130,6 +222,6 @@
   </footer>
 </main>
 
-<script src="../assets/js/pages/content-page.js" defer></script>
+<script src="../assets/js/pages/content-page.js?v=20260328c" defer></script>
 </body>
 </html>

@@ -4,13 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Primeiros Passos — HELPIEEE</title>
+<link rel="icon" type="image/png" href="../assets/images/branding/helpieee-favicon.png">
+<script src="../assets/js/theme.js?v=20260328a"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/pages/content-page.css?v=20260327d">
+<link rel="stylesheet" href="../assets/css/pages/content-page.css?v=20260328q">
 </head>
 <body class="page-content">
 <header class="site-topbar">
   <a href="../index.html" class="site-brand">
-    <span class="site-brand-badge">H!</span>
+    <span class="site-brand-badge" aria-hidden="true">
+      <img src="../assets/images/branding/helpieee-logo.png" alt="" class="brand-mark">
+    </span>
     <span class="site-brand-text">HELP<span>IEEE</span></span>
   </a>
   <nav class="topbar-nav">
@@ -28,9 +32,9 @@
     <div class="page-hero-copy reveal">
       <div class="page-kicker">Rota de entrada</div>
       <h1 class="page-title">Primeiros passos para começar <span>sem se perder</span>.</h1>
-      <p class="page-intro">Se você acabou de chegar e ainda está tentando entender onde fica cada coisa, respira. Aqui está o básico que costuma salvar a primeira semana: chegar na aula certa, entender como a faculdade funciona e começar o semestre sem aquela sensação de estar sempre correndo atrás.</p>
+      <p class="page-intro">Se você acabou de chegar e ainda está tentando entender onde fica cada coisa, respira. Aqui está o básico que costuma salvar a primeira semana: chegar na aula certa, conectar no eduroam, resolver RU, saber como pedir acesso aos laboratórios e começar o semestre sem aquela sensação de estar sempre correndo atrás.</p>
       <div class="hero-actions">
-        <a href="materiais.html" class="button-primary">Abrir biblioteca de materiais</a>
+        <a href="#infraestrutura" class="button-primary">Resolver internet, RU e labs</a>
         <a href="mapa.html" class="button-secondary">Ver mapa do campus</a>
       </div>
     </div>
@@ -38,11 +42,54 @@
     <aside class="hero-panel reveal">
       <div class="hero-panel-title">O que vale resolver primeiro</div>
       <ul class="hero-panel-list">
-        <li><span class="bullet">01</span><span>O essencial para chegar no primeiro dia com mais calma.</span></li>
-        <li><span class="bullet">02</span><span>Os atalhos que mais poupam tempo nas primeiras semanas.</span></li>
-        <li><span class="bullet">03</span><span>Uma rotina simples para não deixar tudo acumular logo no começo.</span></li>
+        <li><span class="bullet">01</span><span>Conectar celular e notebook na internet do campus para parar de depender de improviso.</span></li>
+        <li><span class="bullet">02</span><span>Deixar a carteirinha do RU encaminhada e o restaurante pronto para uso.</span></li>
+        <li><span class="bullet">03</span><span>Saber onde abrir chamado quando precisar de acesso ao LACEE ou ajuda de sistema.</span></li>
       </ul>
     </aside>
+  </section>
+
+  <section class="section-block" id="referencias-visuais">
+    <div class="section-head">
+      <div class="section-kicker">Referências visuais</div>
+      <h2 class="section-title">Alguns lugares que você provavelmente vai reconhecer já no começo.</h2>
+      <p class="section-text">Ter uma imagem mental do campus ajuda bastante quando tudo ainda parece novo demais. Aqui estão alguns cenários que entram cedo na rotina de quase todo calouro.</p>
+    </div>
+
+    <div class="photo-grid three">
+      <figure class="photo-card reveal">
+        <div class="photo-media">
+          <img src="../assets/images/places/ufjf-campus.webp" alt="Espelho d'água e concha acústica no campus da UFJF" loading="lazy">
+        </div>
+        <figcaption class="photo-body">
+          <div class="photo-eyebrow">UFJF</div>
+          <h3 class="photo-title">O campus começa a fazer sentido visualmente.</h3>
+          <p class="photo-text">Esse tipo de vista ajuda a fixar que a UFJF é grande, mas tem alguns marcos fáceis de reconhecer quando você começa a circular mais.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-card reveal">
+        <div class="photo-media">
+          <img src="../assets/images/places/ru-ufjf.webp" alt="Salão do Restaurante Universitário da UFJF com estudantes almoçando" loading="lazy">
+        </div>
+        <figcaption class="photo-body">
+          <div class="photo-eyebrow">RU</div>
+          <h3 class="photo-title">O restaurante vira ponto fixo bem rápido.</h3>
+          <p class="photo-text">Depois que a carteirinha entra no jogo, esse costuma ser um dos espaços que mais aliviam a rotina entre uma aula e outra.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="photo-card reveal">
+        <div class="photo-media">
+          <img src="../assets/images/places/laboratorio-ufjf.webp" alt="Laboratório da UFJF com bancadas, computadores e equipamentos" loading="lazy">
+        </div>
+        <figcaption class="photo-body">
+          <div class="photo-eyebrow">Laboratórios</div>
+          <h3 class="photo-title">A parte prática aparece cedo na caminhada.</h3>
+          <p class="photo-text">ICE e Engenharia entram na sua semana por causa de aulas, softwares e práticas, então já vale ir se acostumando com esse ambiente.</p>
+        </figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="section-block" id="semana-um">
@@ -73,30 +120,77 @@
     </div>
   </section>
 
-  <section class="section-block" id="ferramentas">
+  <section class="section-block" id="infraestrutura">
     <div class="section-head">
-      <div class="section-kicker">Ferramentas essenciais</div>
-      <h2 class="section-title">Os três pilares do seu começo.</h2>
-      <p class="section-text">Esses três pilares costumam segurar bem o começo do semestre: entender a vida acadêmica, saber circular pelo campus e ter material de estudo à mão.</p>
+      <div class="section-kicker">Infraestrutura do começo</div>
+      <h2 class="section-title">As pequenas burocracias que valem ouro quando resolvidas cedo.</h2>
+      <p class="section-text">Internet, RU e acesso aos laboratórios parecem detalhes pequenos, mas são justamente as coisas que mais irritam quando ficam para o dia em que você já está atrasado. Melhor deixar tudo ajeitado logo.</p>
     </div>
 
-    <div class="card-grid two">
+    <div class="split-grid">
       <article class="info-card reveal">
-        <div class="card-eyebrow">Vida acadêmica</div>
-        <h3 class="card-title">Entenda como a faculdade funciona.</h3>
-        <p class="card-text">Matrícula, SIGA, trancamento, prazos, frequência e fluxo curricular são partes do jogo. Quanto antes você entende isso, menos surpresa ruim aparece no semestre.</p>
+        <div class="card-eyebrow">Internet do campus</div>
+        <h3 class="card-title">eduroam sem sofrimento</h3>
+        <p class="card-text">Configurar uma vez já te poupa pacote de dados, senha passada em grupo e correria quando a aula pede conexão.</p>
+        <ul class="mini-list">
+          <li><span class="bullet">1</span><span>Busque por <strong>eduroam ou UFJF-Wifi</strong> dentro de seu gerenciador de wifi.</span></li>
+          <li><span class="bullet">2</span><span>No login, use <strong>seu CPF</strong>; na senha, use a mesma do SIGA.</span></li>
+          <li><span class="bullet">3</span><span>No notebook, entre direto na rede <strong>eduroam</strong>, repita esse login e aceite o certificado digital quando ele aparecer.</span></li>
+        </ul>
         <div class="button-row">
-          <a href="faculdade.html" class="button-secondary">Ir para faculdade</a>
+          <a href="https://www2.ufjf.br/noticias/2025/05/21/ufjf-anuncia-novas-funcionalidades-no-siga-para-o-observatorio-de-dados-e-na-rede-wi-fi/" class="button-secondary" target="_blank" rel="noreferrer">Ver tutorial oficial</a>
+          <a href="https://www2.ufjf.br/catalogoti/rede-sem-fio/" class="button-secondary" target="_blank" rel="noreferrer">Ajuda do Wi-Fi</a>
         </div>
       </article>
 
       <article class="info-card reveal">
-        <div class="card-eyebrow">Navegação prática</div>
-        <h3 class="card-title">Saiba chegar onde precisa.</h3>
-        <p class="card-text">Um mapa bem usado reduz atraso, ansiedade e deslocamento perdido. Ele também ajuda quando você precisa encontrar coordenação, laboratórios e serviços rápidos entre aulas.</p>
-        <div class="button-row">
-          <a href="mapa.html" class="button-secondary">Abrir mapa completo</a>
+        <div class="card-eyebrow">Restaurante Universitário</div>
+        <h3 class="card-title">Carteirinha e recarga sem mistério</h3>
+        <p class="card-text">Resolver o RU cedo é uma daquelas vitórias silenciosas do primeiro mês: você para de improvisar almoço e já ganha uma rotina mais barata.</p>
+        <div class="chip-row">
+          <span class="chip">Café R$ 0,50</span>
+          <span class="chip">Almoço R$ 1,40</span>
+          <span class="chip">Jantar R$ 1,40</span>
         </div>
+        <ul class="mini-list">
+          <li><span class="bullet">1</span><span>Acesse o atendimento on-line do RU e peça a <strong>1ª via da carteirinha</strong>.</span></li>
+          <li><span class="bullet">2</span><span>Separe um documento com foto e uma foto 3x4 recente, de fundo branco.</span></li>
+          <li><span class="bullet">3</span><span>Quando o e-mail chegar, agende a retirada do cartão no campus.</span></li>
+          <li><span class="bullet">4</span><span>No caixa do RU, carregue alguns reais e já deixe café, almoço e jantar funcionando.</span></li>
+        </ul>
+        <div class="button-row">
+          <a href="https://www2.ufjf.br/minhaufjf/restaurante-universitario/" class="button-secondary" target="_blank" rel="noreferrer">Guia do RU</a>
+          <a href="https://carteirinha.ufjf.br/" class="button-secondary" target="_blank" rel="noreferrer">Solicitar carteirinha</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="split-grid">
+      <article class="info-card reveal">
+        <div class="card-eyebrow">Laboratórios</div>
+        <h3 class="card-title">Como pedir acesso ao LACEE</h3>
+        <p class="card-text">Se você vai usar o laboratório, o melhor cenário é resolver isso antes da aula pedir software, máquina ou biometria em cima da hora.</p>
+        <ul class="mini-list">
+          <li><span class="bullet">1</span><span>Entre em <strong>suporte.engenharia.ufjf.br</strong> e abra um ticket novo.</span></li>
+          <li><span class="bullet">2</span><span>No campo <strong>Help Topic</strong>, escolha <strong>Access</strong> e explique que precisa de liberação para o LACEE.</span></li>
+          <li><span class="bullet">3</span><span>Depois do retorno da equipe, faça o cadastro biométrico com o técnico responsável no horário combinado.</span></li>
+          <li><span class="bullet">4</span><span>Se você for de outro curso ou estiver entrando via disciplina específica, isso normalmente também passa por autorização docente ou orientação do suporte.</span></li>
+        </ul>
+        <div class="button-row">
+          <a href="https://suporte.engenharia.ufjf.br/open.php" class="button-secondary" target="_blank" rel="noreferrer">Abrir ticket</a>
+          <a href="https://suporte.engenharia.ufjf.br/kb/faq.php?id=8" class="button-secondary" target="_blank" rel="noreferrer">Ver escopo do suporte</a>
+        </div>
+      </article>
+
+      <article class="info-card reveal">
+        <div class="card-eyebrow">Quando der ruim</div>
+        <h3 class="card-title">Onde pedir ajuda sem ficar rodando campus à toa</h3>
+        <p class="card-text">Quase todo calouro perde um tempo desnecessário tentando adivinhar o setor certo. Esse atalho já economiza parte desse desgaste.</p>
+        <ul class="link-list">
+          <li><a href="https://centraldeservicos.ufjf.br/" target="_blank" rel="noreferrer">Senha do SIGA, Wi-Fi, Moodle e outros pepinos de sistema</a></li>
+          <li><a href="https://www2.ufjf.br/minhaufjf/restaurante-universitario/" target="_blank" rel="noreferrer">Carteirinha, horários e dúvidas práticas do RU</a></li>
+          <li><a href="https://www2.ufjf.br/minhaufjf/siga/" target="_blank" rel="noreferrer">Primeiro acesso ao SIGA e atualização de e-mail cadastrado</a></li>
+        </ul>
       </article>
     </div>
   </section>
@@ -131,11 +225,11 @@
 
   <section class="callout-panel reveal">
     <div class="section-kicker">Próximo passo</div>
-    <h2 class="section-title">Agora escolha sua trilha principal.</h2>
-    <p class="section-text">Se sua prioridade é estudar, vá para a biblioteca de materiais. Se a sua dúvida é campus, fluxo ou suporte, a próxima navegação já está pronta.</p>
+    <h2 class="section-title">Com internet, RU e laboratórios encaminhados, o começo já fica bem menos pesado.</h2>
+    <p class="section-text">Daqui em diante, o ideal é combinar o básico prático com entendimento da faculdade: estudar com calma, aprender as siglas e não deixar a parte burocrática te pegar de surpresa.</p>
     <div class="button-row">
       <a href="materiais.html" class="button-primary">Ver materiais</a>
-      <a href="comunidade.html" class="button-secondary">Explorar comunidade</a>
+      <a href="faculdade.html#glossario" class="button-secondary">Abrir glossário UFJF</a>
       <a href="fluxo.html" class="button-secondary">Abrir fluxo curricular</a>
     </div>
   </section>
@@ -153,6 +247,6 @@
   </footer>
 </main>
 
-<script src="../assets/js/pages/content-page.js" defer></script>
+<script src="../assets/js/pages/content-page.js?v=20260328c" defer></script>
 </body>
 </html>
