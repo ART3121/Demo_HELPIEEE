@@ -1,3 +1,27 @@
+const homeIntro = document.getElementById('home-intro');
+const rootElement = document.documentElement;
+
+if (homeIntro && rootElement.classList.contains('has-home-intro')) {
+  let introClosed = false;
+
+  const closeHomeIntro = () => {
+    if (introClosed) {
+      return;
+    }
+
+    introClosed = true;
+    rootElement.classList.add('home-intro-leaving');
+
+    window.setTimeout(() => {
+      rootElement.classList.remove('has-home-intro', 'home-intro-leaving');
+      homeIntro.remove();
+    }, 620);
+  };
+
+  window.setTimeout(closeHomeIntro, 1900);
+  homeIntro.addEventListener('click', closeHomeIntro, { once: true });
+}
+
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 

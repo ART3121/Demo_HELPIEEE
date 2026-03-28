@@ -3,24 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HELPIEEE — Guia do Calouro · IEEE UFJF</title>
+<title>HELPIEEE — Guia do Calouro da Elétrica UFJF</title>
 <link rel="icon" type="image/png" href="assets/images/branding/helpieee-favicon.png">
 <script src="assets/js/theme.js?v=20260328a"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=20260328i">
+<script>
+(() => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reducedMotion) {
+    document.documentElement.classList.add('has-home-intro');
+  }
+})();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=20260328p">
 </head>
 <body class="page-home" id="top">
+<div class="home-intro" id="home-intro" aria-hidden="true">
+  <div class="home-intro__halo"></div>
+  <div class="home-intro__inner">
+    <div class="home-intro__mark-wrap">
+      <img src="assets/images/branding/helpieee-logo.png" alt="" class="home-intro__mark home-intro__mark--light">
+      <img src="assets/images/branding/helpieee-home-logo.png" alt="" class="home-intro__mark home-intro__mark--dark">
+    </div>
+    <div class="home-intro__label">HELPIEEE</div>
+  </div>
+</div>
 <!-- NAV -->
 <nav>
   <a href="#top" class="nav-logo">
     <span class="nav-logo-badge" aria-hidden="true">
-      <img src="assets/images/branding/helpieee-home-logo.png" alt="" class="brand-mark">
+      <img src="assets/images/branding/helpieee-home-logo.png" alt="" class="nav-logo-mark">
     </span>
-    <div class="nav-logo-text">HELP<span>IEEE</span></div>
+    <span class="nav-logo-lockup">
+      <span class="nav-logo-text">HELPIEEE</span>
+      <span class="nav-logo-meta">Projeto do Ramo Estudantil IEEE UFJF</span>
+    </span>
   </a>
   <ul class="nav-links">
     <li><a href="#indice">Índice</a></li>
-    <li><a href="#materials">Materiais</a></li>
+    <li><a href="#materiais-atalho">Materiais</a></li>
     <li><a href="#map">Mapa</a></li>
     <li><a href="#fluxo">Fluxo</a></li>
     <li><a href="#depoimentos">Dicas</a></li>
@@ -34,13 +55,13 @@
 
   <!-- Float left -->
   <div class="hero-float hero-float-left">
-    <a href="pages/materiais-calculo.html" class="float-card" aria-label="Abrir materiais de Cálculo I">
+    <a href="#materiais-atalho" class="float-card" aria-label="Ir para o atalho da biblioteca de materiais">
       <div class="float-card-icon">
-        <img src="assets/icons/blueprint.svg" alt="" class="icon-svg icon-svg--float">
+        <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--float">
       </div>
-      <div class="float-card-title">Cálculo I</div>
-      <div class="float-card-sub">Provas antigas + resoluções disponíveis</div>
-      <div class="float-card-tag">12 arquivos</div>
+      <div class="float-card-title">Materiais</div>
+      <div class="float-card-sub">Páginas das disciplinas e provas antigas em um só lugar</div>
+      <div class="float-card-tag">Acesso rápido</div>
     </a>
   </div>
 
@@ -57,9 +78,7 @@
   </div>
 
   <div class="hero-content">
-    <div class="hero-tag">
-      IEEE Student Branch · UFJF · Engenharia Elétrica
-    </div>
+    <div class="hero-tag">Projeto do Ramo Estudantil IEEE UFJF</div>
 
     <h1 class="hero-title">
       Bem-vindo à<br>
@@ -74,10 +93,6 @@
 
     <div class="hero-buttons">
       <a href="pages/primeiros-passos.html" class="btn-primary">Explorar o guia →</a>
-      <a href="pages/materiais.html" class="btn-secondary">
-        <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--button">
-        Ver materiais
-      </a>
       <a href="#indice" class="btn-secondary">Índice rápido</a>
     </div>
   </div>
@@ -90,6 +105,24 @@
     <div class="section-label reveal">Acesso rápido</div>
     <h2 class="section-title reveal">Já sabe o que precisa?</h2>
     <p class="section-desc reveal">Se você já sabe o que quer abrir, use este mapa rápido do projeto inteiro para pular direto para a página certa.</p>
+
+    <a href="pages/materiais.html" class="index-spotlight reveal" id="materiais-atalho" aria-label="Abrir biblioteca de materiais">
+      <div class="index-spotlight-icon">
+        <img src="assets/icons/book.svg" alt="" class="icon-svg">
+      </div>
+      <div class="index-spotlight-copy">
+        <span class="index-spotlight-kicker">Biblioteca de materiais</span>
+        <h3 class="index-spotlight-title">Todas as páginas das disciplinas do 1º período em um único atalho.</h3>
+        <p class="index-spotlight-desc">Entre por aqui para abrir a visão geral das matérias, chegar nas páginas específicas e acessar provas antigas sem precisar caçar links pela home.</p>
+        <div class="index-spotlight-tags" aria-hidden="true">
+          <span class="index-spotlight-tag">Algoritmos</span>
+          <span class="index-spotlight-tag">Cálculo I</span>
+          <span class="index-spotlight-tag">Geometria Analítica</span>
+          <span class="index-spotlight-tag">Provas antigas</span>
+        </div>
+      </div>
+      <span class="index-spotlight-cta">Abrir materiais →</span>
+    </a>
 
     <div class="index-groups reveal">
       <div class="index-group">
@@ -125,44 +158,6 @@
             <span class="index-link-title">IEEE & Oportunidades</span>
             <span class="index-link-meta">capítulos, equipes, eventos e portas de entrada</span>
           </a>
-          <a href="pages/materiais.html" class="index-link">
-            <span class="index-link-title">Biblioteca de Materiais</span>
-            <span class="index-link-meta">visão geral do 1º período e acesso a provas antigas</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="index-group index-group--wide">
-        <div class="index-group-title">Disciplinas com página própria</div>
-        <div class="index-list index-list--disciplines">
-          <a href="pages/materiais-algoritmos.html" class="index-link">
-            <span class="index-link-title">Algoritmos</span>
-            <span class="index-link-meta">lógica, pseudocódigo e prática</span>
-          </a>
-          <a href="pages/materiais-calculo.html" class="index-link">
-            <span class="index-link-title">Cálculo I</span>
-            <span class="index-link-meta">limites, derivadas e cronograma</span>
-          </a>
-          <a href="pages/materiais-geometria-analitica.html" class="index-link">
-            <span class="index-link-title">Geometria Analítica</span>
-            <span class="index-link-meta">vetores, retas, planos e listas</span>
-          </a>
-          <a href="pages/materiais-introducao-engenharia-eletrica.html" class="index-link">
-            <span class="index-link-title">Introdução à Eng. Elétrica</span>
-            <span class="index-link-meta">visão do curso e áreas da elétrica</span>
-          </a>
-          <a href="pages/materiais-laboratorio-ciencias-fisicas.html" class="index-link">
-            <span class="index-link-title">Lab. de Ciências Físicas</span>
-            <span class="index-link-meta">relatório, medidas e rotina prática</span>
-          </a>
-          <a href="pages/materiais-quimica-fundamental.html" class="index-link">
-            <span class="index-link-title">Química Fundamental</span>
-            <span class="index-link-meta">conceitos-base e leitura de exercícios</span>
-          </a>
-          <a href="pages/materiais-laboratorio-quimica.html" class="index-link">
-            <span class="index-link-title">Lab. de Química</span>
-            <span class="index-link-meta">segurança, bancada e escrita de relatório</span>
-          </a>
         </div>
       </div>
     </div>
@@ -187,24 +182,24 @@
         <span class="feature-link" aria-hidden="true">Ver mapa →</span>
       </a>
 
-      <a href="pages/materiais.html" class="feature-card" aria-label="Abrir guia de matérias">
+      <a href="pages/primeiros-passos.html" class="feature-card" aria-label="Abrir página Primeiros Passos">
         <span class="feature-num">02</span>
-        <div class="feature-icon">
-          <img src="assets/icons/book.svg" alt="" class="icon-svg">
-        </div>
-        <div class="feature-title">Guia de Matérias</div>
-        <p class="feature-desc">Como funcionam Algoritmos, Cálculo I, G.A., Química e as disciplinas introdutórias do 1º período? Entenda o ritmo e como estudar melhor cada uma.</p>
-        <span class="feature-link" aria-hidden="true">Ver matérias →</span>
-      </a>
-
-      <a href="pages/materiais.html#provas" class="feature-card" aria-label="Abrir seção de provas antigas">
-        <span class="feature-num">03</span>
         <div class="feature-icon">
           <img src="assets/icons/document.svg" alt="" class="icon-svg">
         </div>
-        <div class="feature-title">Provas Antigas</div>
-        <p class="feature-desc">Acesse provas e listas de disciplinas-chave do 1º período, com espaço preparado para resoluções detalhadas e revisão por tema.</p>
-        <span class="feature-link" aria-hidden="true">Acessar provas →</span>
+        <div class="feature-title">Primeiros Passos</div>
+        <p class="feature-desc">Resolva o básico logo no começo: internet eduroam, RU, acesso aos laboratórios e pequenos atalhos que fazem diferença na primeira semana.</p>
+        <span class="feature-link" aria-hidden="true">Começar por aqui →</span>
+      </a>
+
+      <a href="pages/fluxo.html" class="feature-card" aria-label="Abrir página do fluxo curricular">
+        <span class="feature-num">03</span>
+        <div class="feature-icon">
+          <img src="assets/icons/blueprint.svg" alt="" class="icon-svg">
+        </div>
+        <div class="feature-title">Fluxo Curricular</div>
+        <p class="feature-desc">Veja a lógica das matérias, os pré-requisitos e como o curso vai se abrindo ao longo dos períodos para planejar melhor o que vem pela frente.</p>
+        <span class="feature-link" aria-hidden="true">Ver fluxo →</span>
       </a>
 
       <a href="pages/faculdade.html" class="feature-card" aria-label="Abrir página sobre o funcionamento da faculdade">
@@ -239,111 +234,6 @@
     </div>
   </div>
 </div>
-
-<!-- MATERIALS -->
-<section id="materials">
-  <div class="section-label reveal">Biblioteca de materiais</div>
-  <h2 class="section-title reveal">Materiais do 1º período,<br>sem excesso.</h2>
-  <p class="section-desc reveal">Só as disciplinas que realmente aparecem no começo do curso, cada uma com sua própria página para crescer depois com provas, resumos e listas.</p>
-
-  <div class="materials-grid reveal">
-    <!-- Featured -->
-    <a href="pages/materiais-calculo.html" class="mat-card featured" aria-label="Abrir materiais de Cálculo I">
-      <div class="mat-icon">
-        <img src="assets/icons/math.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Cálculo I</div>
-      <p class="mat-desc">A disciplina mais temida do começo do curso agora tem uma página própria, focada no que realmente importa no 1º período: limites, derivadas, rotina de treino e provas antigas.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Limites</span>
-        <span class="mat-tag">Derivadas</span>
-        <span class="mat-tag">Aplicações</span>
-        <span class="mat-tag">P1 · P2 · P3</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Acessar materiais →</span>
-    </a>
-
-    <a href="pages/materiais-algoritmos.html" class="mat-card" aria-label="Abrir materiais de Algoritmos">
-      <div class="mat-icon">
-        <img src="assets/icons/algorithm.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Algoritmos</div>
-      <p class="mat-desc">Lógica, pseudocódigo, estrutura de resolução e prática curta para ganhar segurança logo no começo da graduação.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Lógica</span>
-        <span class="mat-tag">Fluxo</span>
-        <span class="mat-tag">Depuração</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Ver materiais →</span>
-    </a>
-
-    <a href="pages/materiais-geometria-analitica.html" class="mat-card" aria-label="Abrir materiais de Geometria Analítica">
-      <div class="mat-icon">
-        <img src="assets/icons/blueprint.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Geometria Analítica</div>
-      <p class="mat-desc">Vetores, retas, planos e cônicas. Provas antigas com gabarito e resoluções comentadas para cada tipo de questão.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Vetores</span>
-        <span class="mat-tag">Matrizes</span>
-        <span class="mat-tag">Cônicas</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Ver materiais →</span>
-    </a>
-
-    <a href="pages/materiais-introducao-engenharia-eletrica.html" class="mat-card" aria-label="Abrir materiais de Introdução à Engenharia Elétrica">
-      <div class="mat-icon">
-        <img src="assets/icons/engineering.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Introdução à Eng. Elétrica</div>
-      <p class="mat-desc">A disciplina que ajuda a entender o curso, as áreas da Engenharia Elétrica e o tipo de formação que vai aparecer ao longo da graduação.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Curso</span>
-        <span class="mat-tag">Áreas</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Ver materiais →</span>
-    </a>
-
-    <a href="pages/materiais-laboratorio-ciencias-fisicas.html" class="mat-card" aria-label="Abrir materiais de Laboratório de Ciências Físicas">
-      <div class="mat-icon">
-        <img src="assets/icons/lab.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Lab. de Ciências Físicas</div>
-      <p class="mat-desc">Organização de relatório, leitura de medidas e preparo para as atividades práticas sem depender de memória de última hora.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Relatório</span>
-        <span class="mat-tag">Medidas</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Ver materiais →</span>
-    </a>
-
-    <a href="pages/materiais-quimica-fundamental.html" class="mat-card" aria-label="Abrir materiais de Química Fundamental">
-      <div class="mat-icon">
-        <img src="assets/icons/flask.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Química Fundamental</div>
-      <p class="mat-desc">Conceitos-base, leitura de exercícios e revisão dos temas que mais aparecem nas primeiras avaliações da disciplina.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Estrutura</span>
-        <span class="mat-tag">Reações</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Ver materiais →</span>
-    </a>
-
-    <a href="pages/materiais-laboratorio-quimica.html" class="mat-card" aria-label="Abrir materiais de Laboratório de Química">
-      <div class="mat-icon">
-        <img src="assets/icons/lab.svg" alt="" class="icon-svg icon-svg--material">
-      </div>
-      <div class="mat-title">Lab. de Química</div>
-      <p class="mat-desc">Segurança, observação experimental e escrita de relatório para a parte prática da disciplina entrar de forma mais tranquila.</p>
-      <div class="mat-tags">
-        <span class="mat-tag">Bancada</span>
-        <span class="mat-tag">Relatório</span>
-      </div>
-      <span class="mat-link" aria-hidden="true">Ver materiais →</span>
-    </a>
-  </div>
-</section>
 
 <!-- MAP SECTION -->
 <div class="map-section" id="map">
@@ -463,8 +353,8 @@
 <div class="ieee-section" id="ieee">
   <div class="ieee-inner reveal">
     <div class="ieee-text">
-      <h3>Uma iniciativa do IEEE UFJF</h3>
-      <p>O HELPIEEE é um projeto do Ramo Estudantil IEEE da Universidade Federal de Juiz de Fora. O IEEE é a maior organização técnica profissional do mundo — e na UFJF, o ramo estudantil conecta alunos de Engenharia com eventos, projetos e oportunidades únicas.</p>
+      <h3>Uma iniciativa do Ramo Estudantil IEEE UFJF</h3>
+      <p>O HELPIEEE é um projeto de acolhimento criado pelo Ramo Estudantil IEEE UFJF. O guia tem identidade própria, mas nasce da vontade do ramo de facilitar o começo do curso, conectar calouros a oportunidades e transformar a chegada à faculdade em algo menos caótico.</p>
     </div>
     <div class="ieee-badge-group">
       <div class="ieee-badge">
@@ -486,9 +376,9 @@
   <h2 class="cta-title">Seu semestre começa<br><span>muito melhor</span> agora.</h2>
   <p class="cta-desc">Acesse materiais, explore o campus e aproveite tudo que o HELPIEEE preparou para você. Gratuito, sempre.</p>
   <div class="cta-buttons">
-    <a href="pages/materiais.html" class="btn-white">
+    <a href="#materiais-atalho" class="btn-white">
       <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--button">
-      Ver todos os materiais
+      Ir para materiais
     </a>
     <a href="pages/mapa.html" class="btn-outline-white">
       <img src="assets/icons/map.svg" alt="" class="icon-svg icon-svg--button icon-svg--button-light">
@@ -502,21 +392,20 @@
   <div class="footer-inner">
     <div>
       <div class="footer-logo">
-        <img src="assets/images/branding/helpieee-home-logo.png" alt="" class="footer-logo-mark">
-        <div class="footer-logo-text">HELP<span>IEEE</span></div>
+        <div class="footer-logo-text">HELPIEEE</div>
       </div>
-      <div class="footer-sub">Ramo Estudantil IEEE · UFJF · Juiz de Fora, MG</div>
+      <div class="footer-sub">Projeto do Ramo Estudantil IEEE UFJF · Juiz de Fora, MG</div>
     </div>
     <ul class="footer-links">
-      <li><a href="pages/materiais.html">Materiais</a></li>
+      <li><a href="#materiais-atalho">Materiais</a></li>
       <li><a href="pages/mapa.html">Mapa</a></li>
       <li><a href="pages/ieee.html">Sobre o IEEE</a></li>
       <li><a href="pages/primeiros-passos.html">Começar</a></li>
     </ul>
-    <div class="footer-copy">© 2025 IEEE UFJF</div>
+    <div class="footer-copy">© 2026 IEEE · All rights reserved.</div>
   </div>
 </footer>
 
-<script src="assets/js/pages/home.js?v=20260327b" defer></script>
+<script src="assets/js/pages/home.js?v=20260328c" defer></script>
 </body>
 </html>
