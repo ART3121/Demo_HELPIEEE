@@ -23,7 +23,7 @@
 })();
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/pages/home.css?v=20260328q">
+<link rel="stylesheet" href="assets/css/pages/home.css?v=20260329c">
 </head>
 <body class="page-home" id="top">
 <div class="home-intro" id="home-intro" aria-hidden="true">
@@ -61,27 +61,48 @@
 <div class="hero">
   <div class="hero-glow"></div>
 
-  <!-- Float left -->
-  <div class="hero-float hero-float-left">
-    <a href="#materiais-atalho" class="float-card" aria-label="Ir para o atalho da biblioteca de materiais">
-      <div class="float-card-icon">
-        <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--float">
+  <div class="hero-float hero-float--left">
+    <a href="pages/materiais.html" class="hero-float-card hero-float-card--featured hero-float-card--materials" aria-label="Abrir biblioteca de materiais">
+      <div class="hero-float-head">
+        <span class="hero-float-kicker">Mais acessado</span>
+        <span class="hero-float-icon">
+          <img src="assets/icons/book.svg" alt="" class="icon-svg icon-svg--float">
+        </span>
       </div>
-      <div class="float-card-title">Materiais</div>
-      <div class="float-card-sub">Páginas das disciplinas e provas antigas em um só lugar</div>
-      <div class="float-card-tag">Acesso rápido</div>
+      <h3 class="hero-float-title">Materiais do 1º período</h3>
+      <p class="hero-float-desc">Páginas das disciplinas, resumos e provas antigas em um só lugar.</p>
+      <div class="hero-float-tags" aria-hidden="true">
+        <span class="hero-float-tag">Algoritmos</span>
+        <span class="hero-float-tag">Cálculo I</span>
+        <span class="hero-float-tag">Provas antigas</span>
+      </div>
+      <span class="hero-float-link" aria-hidden="true">Ver materiais →</span>
     </a>
   </div>
 
-  <!-- Float right -->
-  <div class="hero-float hero-float-right">
-    <a href="pages/mapa.html" class="float-card" aria-label="Abrir mapa interativo do campus">
-      <div class="float-card-icon">
-        <img src="assets/icons/map.svg" alt="" class="icon-svg icon-svg--float">
+  <div class="hero-float hero-float--right">
+    <a href="pages/fluxo.html" class="hero-float-card hero-float-card--flow" aria-label="Abrir página do fluxo curricular">
+      <div class="hero-float-head">
+        <span class="hero-float-kicker">Visão do curso</span>
+        <span class="hero-float-icon">
+          <img src="assets/icons/blueprint.svg" alt="" class="icon-svg icon-svg--float">
+        </span>
       </div>
-      <div class="float-card-title">Bloco F</div>
-      <div class="float-card-sub">Sala 202 — ENG. ELÉTRICA</div>
-      <div class="float-card-tag">Mapa interativo</div>
+      <h3 class="hero-float-title">Fluxo Curricular</h3>
+      <p class="hero-float-desc">Pré-requisitos, habilitações e visão do curso.</p>
+      <span class="hero-float-link" aria-hidden="true">Abrir fluxo →</span>
+    </a>
+
+    <a href="pages/ieee.html" class="hero-float-card hero-float-card--ieee" aria-label="Abrir página IEEE e oportunidades">
+      <div class="hero-float-head">
+        <span class="hero-float-kicker">Rede e oportunidades</span>
+        <span class="hero-float-icon">
+          <img src="assets/icons/circuit.svg" alt="" class="icon-svg icon-svg--float">
+        </span>
+      </div>
+      <h3 class="hero-float-title">IEEE & oportunidades</h3>
+      <p class="hero-float-desc">Capítulos, equipes e portas de entrada para participar.</p>
+      <span class="hero-float-link" aria-hidden="true">Conhecer →</span>
     </a>
   </div>
 
@@ -95,7 +116,7 @@
     </h1>
 
     <p class="hero-sub">
-      O <strong>HELPIEEE</strong> é o guia definitivo do calouro de Engenharia Elétrica da UFJF —
+      O <strong>HELPIEEE</strong> é o guia definitivo do calouro de Engenharia Elétrica da UFJF,
       feito por quem já passou por tudo isso e sobreviveu.
     </p>
 
@@ -303,7 +324,7 @@
   </div>
   <div class="fluxo-embed reveal">
       <iframe
-        src="pages/fluxo.html?v=20260328a"
+        src="pages/fluxo.html?v=20260329a"
         id="fluxo-iframe"
         class="fluxo-iframe"
         title="Fluxo Curricular Interativo"
@@ -414,6 +435,6 @@
   </div>
 </footer>
 
-<script src="assets/js/pages/home.js?v=20260328d" defer></script>
+<script src="assets/js/pages/home.js?v=20260329c" defer></script>
 </body>
 </html>

@@ -6,8 +6,8 @@ const contentPageRoutes = [
   { href: 'faculdade.html', label: 'Faculdade', file: 'faculdade.html', theme: 'theme-ias', meta: 'SIGA, RAG e IRA' },
   { href: 'materiais.html', label: 'Materiais', file: 'materiais.html', theme: 'theme-pes', meta: 'Biblioteca do 1º período', matchPrefix: 'materiais-' },
   { href: 'mapa.html', label: 'Mapa', file: 'mapa.html', theme: 'theme-vts', meta: 'Salas e blocos' },
-  { href: 'comunidade.html', label: 'Comunidade', file: 'comunidade.html', theme: 'theme-sight', meta: 'Apoio e grupos' },
-  { href: 'ieee.html', label: 'IEEE', file: 'ieee.html', theme: 'theme-wie', meta: 'Capítulos e equipes' },
+  { href: 'comunidade.html', label: 'Comunidade', file: 'comunidade.html', theme: 'theme-sight', meta: 'Integração e apoio' },
+  { href: 'ieee.html', label: 'IEEE', file: 'ieee.html', theme: 'theme-wie', meta: 'Capítulos do ramo' },
   { href: 'fluxo.html', label: 'Fluxo', file: 'fluxo.html', theme: 'theme-aess', meta: 'Pré-requisitos' },
 ];
 

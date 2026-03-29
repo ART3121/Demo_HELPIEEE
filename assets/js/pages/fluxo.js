@@ -90,6 +90,25 @@ function getDiscId(code) {
   return `disc-${slug}`;
 }
 
+function getElementFrame(element, container) {
+  let left = element.offsetLeft;
+  let top = element.offsetTop;
+  let parent = element.offsetParent;
+
+  while (parent && parent !== container) {
+    left += parent.offsetLeft;
+    top += parent.offsetTop;
+    parent = parent.offsetParent;
+  }
+
+  return {
+    left,
+    top,
+    right: left + element.offsetWidth,
+    centerY: top + element.offsetHeight / 2
+  };
+}
+
 function getStorageKey(curriculumKey) {
   return `helpieee-flow-done-${curriculumKey}`;
 }
@@ -237,12 +256,15 @@ function drawArrows() {
   const svg = document.getElementById('arrows-svg');
   svg.innerHTML = '';
 
-  const gridRect = grid.getBoundingClientRect();
-  const scrollLeft = scrollHost.scrollLeft;
-  const scrollTop = scrollHost.scrollTop;
+  const width = Math.max(grid.scrollWidth, grid.clientWidth);
+  const height = Math.max(grid.scrollHeight, grid.clientHeight);
   const prereqSet = selectedCode ? new Set(activeCurriculum.discs[selectedCode]?.prereqs || []) : new Set();
   const unlockSet = selectedCode ? new Set(activeCurriculum.unlocks[selectedCode] || []) : new Set();
   const edges = [];
+
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  svg.setAttribute('width', String(width));
+  svg.setAttribute('height', String(height));
 
   Object.values(activeCurriculum.discs).forEach((disc) => {
     disc.prereqs.forEach((prereq) => {
@@ -286,21 +308,22 @@ function drawArrows() {
       return;
     }
 
-    const fromRect = fromEl.getBoundingClientRect();
-    const toRect = toEl.getBoundingClientRect();
+    const fromFrame = getElementFrame(fromEl, grid);
+    const toFrame = getElementFrame(toEl, grid);
     const isPrereq = selectedCode && prereqSet.has(from) && to === selectedCode;
     const isUnlock = selectedCode && from === selectedCode && unlockSet.has(to);
     const isDimmed = selectedCode && !isPrereq && !isUnlock;
 
-    const x1 = fromRect.right - gridRect.left + scrollLeft;
-    const y1 = fromRect.top + fromRect.height / 2 - gridRect.top + scrollTop;
-    const x2 = toRect.left - gridRect.left + scrollLeft - 2;
-    const y2 = toRect.top + toRect.height / 2 - gridRect.top + scrollTop;
+    const x1 = fromFrame.right;
+    const y1 = fromFrame.centerY;
+    const x2 = toFrame.left - 2;
+    const y2 = toFrame.centerY;
     const cx1 = x1 + (x2 - x1) * 0.5;
     const cx2 = x2 - (x2 - x1) * 0.5;
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
     path.setAttribute('d', `M${x1},${y1} C${cx1},${y1} ${cx2},${y2} ${x2},${y2}`);
+    path.setAttribute('vector-effect', 'non-scaling-stroke');
 
     let className = 'arrow-line';
     let markerType = 'default';
